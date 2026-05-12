@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TPRM Mastery — Complete Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c10;--surface:#111318;--surface2:#181c24;--surface3:#1e2330;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--text:#e8eaf0;--text2:#9aa0b4;--text3:#5a6070;--accent:#4f9cf9;--accent-dim:rgba(79,156,249,0.12);--accent-border:rgba(79,156,249,0.3);--green:#3dd68c;--green-dim:rgba(61,214,140,0.1);--green-border:rgba(61,214,140,0.3);--amber:#f5a623;--amber-dim:rgba(245,166,35,0.1);--amber-border:rgba(245,166,35,0.3);--red:#f05252;--red-dim:rgba(240,82,82,0.1);--red-border:rgba(240,82,82,0.3);--purple:#a78bfa;--purple-dim:rgba(167,139,250,0.1);--radius:10px;--radius-lg:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-size:15px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+.shell{display:flex;min-height:100vh;position:relative;z-index:1}
+.sidebar{width:265px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.logo{padding:22px 20px 16px;border-bottom:1px solid var(--border)}
+.logo-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:5px}
+.logo-title{font-family:'DM Serif Display',serif;font-size:20px;color:var(--text);line-height:1.2}
+.logo-title em{color:var(--accent);font-style:italic}
+.nav-section{padding:14px 16px 5px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:8px 14px;margin:1px 8px;border-radius:8px;cursor:pointer;transition:all .18s;color:var(--text2);font-size:12px;font-weight:400;border:none;background:none;width:calc(100% - 16px);text-align:left}
+.nav-item:hover{background:var(--surface2);color:var(--text)}
+.nav-item.active{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border)}
+.nav-num{font-family:'DM Mono',monospace;font-size:9px;width:16px;text-align:center;flex-shrink:0;opacity:.5}
+.nav-item.active .nav-num{opacity:1;color:var(--accent)}
+.nav-badge{font-family:'DM Mono',monospace;font-size:9px;padding:1px 6px;border-radius:10px;background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);margin-left:auto}
+.sidebar-footer{margin-top:auto;padding:14px;border-top:1px solid var(--border)}
+.progress-summary{font-size:11px;color:var(--text3);margin-bottom:6px}
+.sidebar-progress{height:3px;background:var(--surface3);border-radius:2px;overflow:hidden}
+.sidebar-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:2px;transition:width .4s ease;width:0%}
+.main{flex:1;overflow-y:auto;min-height:100vh}
+.panel{display:none;padding:36px 44px;max-width:880px;animation:fadeUp .25s ease}
+.panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.panel-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.panel-title{font-family:'DM Serif Display',serif;font-size:34px;line-height:1.15;color:var(--text);margin-bottom:8px}
+.panel-sub{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:28px;max-width:620px}
+.section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:10px;transition:border-color .2s}
+.card:hover{border-color:var(--border2)}
+.card-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px}
+.card-body{font-size:13px;color:var(--text2);line-height:1.7}
+.card-success{border-color:var(--green-border);background:var(--green-dim)}
+.card-warning{border-color:var(--amber-border);background:var(--amber-dim)}
+.card-danger{border-color:var(--red-border);background:var(--red-dim)}
+.card-info{border-color:var(--accent-border);background:var(--accent-dim)}
+.badge{display:inline-block;font-size:11px;font-weight:500;font-family:'DM Mono',monospace;padding:3px 10px;border-radius:20px;letter-spacing:.03em}
+.badge-green{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border)}
+.badge-amber{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
+.badge-red{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}
+.badge-blue{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border)}
+.badge-purple{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
+.badge-gray{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+.btn{padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:var(--surface2);color:var(--text);transition:all .15s;font-family:'Outfit',sans-serif}
+.btn:hover{background:var(--surface3)}
+.btn:disabled{opacity:.3;cursor:default}
+.btn-primary{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
+.btn-primary:hover{background:rgba(79,156,249,.2)}
+.btn-success{background:var(--green-dim);border-color:var(--green-border);color:var(--green)}
+.btn-sm{padding:5px 12px;font-size:12px}
+.step-dots{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+.step-dot{width:28px;height:5px;border-radius:3px;background:var(--surface3);cursor:pointer;transition:all .2s}
+.step-dot.done{background:var(--green)}.step-dot.active{background:var(--accent)}
+.prog-track{height:3px;background:var(--surface3);border-radius:2px;margin-bottom:22px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:2px;transition:width .3s}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.checklist li{display:flex;align-items:flex-start;gap:11px;font-size:13px;color:var(--text2);line-height:1.6;padding:9px 13px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border)}
+.check-icon{flex-shrink:0;margin-top:2px;color:var(--accent);font-size:13px}
+.stage-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin-bottom:14px}
+.stage-header{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+.stage-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;font-family:'DM Mono',monospace}
+.stage-title{font-family:'DM Serif Display',serif;font-size:18px;color:var(--text);margin-bottom:2px}
+.stage-sub{font-size:12px;color:var(--text3)}
+.interview-tip{margin-top:14px;padding:11px 15px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius)}
+.tip-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.tip-body{font-size:12px;color:rgba(79,156,249,.85);line-height:1.65}
+.soc-report{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:14px}
+.soc-header{background:var(--surface2);padding:14px 18px;border-bottom:1px solid var(--border)}
+.soc-firm{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:3px;font-family:'DM Mono',monospace}
+.soc-title{font-size:13px;color:var(--text);font-weight:500;margin-bottom:2px}
+.soc-meta{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace}
+.soc-section{padding:14px 18px;border-bottom:1px solid var(--border);font-family:'Outfit',sans-serif}
+.soc-section:last-child{border-bottom:none}
+.soc-section-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.soc-text{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:7px}
+.soc-text:last-child{margin-bottom:0}
+.opinion-block{padding:11px 15px;border-radius:var(--radius);margin:8px 0;font-size:13px;line-height:1.6}
+.exc-row{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px}
+.exc-row:last-child{border-bottom:none}
+.exc-id{font-family:'DM Mono',monospace;font-size:9px;background:var(--surface2);padding:3px 7px;border-radius:4px;color:var(--text3);flex-shrink:0;margin-top:2px;border:1px solid var(--border)}
+.ann-btn{font-size:11px;font-family:'DM Mono',monospace;padding:3px 10px;border-radius:20px;cursor:pointer;border:1px solid var(--accent-border);background:var(--accent-dim);color:var(--accent);margin-top:7px;display:inline-block;transition:all .15s}
+.ann-btn:hover{background:rgba(79,156,249,.2)}
+.annotation{margin-top:9px;padding:11px 13px;background:var(--amber-dim);border:1px solid var(--amber-border);border-radius:var(--radius);font-size:12px;color:var(--amber);line-height:1.65;display:none}
+.annotation.show{display:block}
+.cuec-row{display:flex;justify-content:space-between;align-items:center;gap:11px;padding:9px 13px;background:var(--surface2);border-radius:var(--radius);margin-bottom:5px;font-size:13px;color:var(--text2);border:1px solid var(--border);flex-wrap:wrap}
+.redflag-card{border-radius:var(--radius-lg);border:1px solid var(--border);overflow:hidden;margin-bottom:9px}
+.redflag-head{display:flex;align-items:center;gap:11px;padding:12px 16px;background:var(--surface)}
+.redflag-body{padding:11px 16px;font-size:13px;color:var(--text2);line-height:1.7;background:var(--surface);border-top:1px solid var(--border)}
+.scenario-box{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:14px}
+.scenario-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:7px}
+.scenario-q{font-size:14px;color:var(--text);line-height:1.7}
+.star-section{margin-bottom:9px}
+.star-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.star-body{font-size:13px;color:var(--text2);line-height:1.7}
+.model-answer{display:none;margin-top:12px;padding:18px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--accent-border)}
+.model-answer.show{display:block}
+.why-box{margin-top:11px;padding:11px 13px;background:var(--accent-dim);border-radius:var(--radius);border:1px solid var(--accent-border)}
+.why-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.why-body{font-size:13px;color:rgba(79,156,249,.85);line-height:1.65}
+.redline-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:11px}
+.redline-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--surface2);border-bottom:1px solid var(--border)}
+.redline-clause-name{font-size:14px;font-weight:600;color:var(--text)}
+.redline-body{padding:16px 18px}
+.redline-vendor-lang{font-size:12px;color:var(--text3);font-style:italic;line-height:1.7;padding:11px 13px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:11px;font-family:'DM Mono',monospace}
+.redline-detail{display:none;margin-top:11px}
+.redline-detail.show{display:block}
+.redline-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:11px 0 5px}
+.redline-accept-text{font-size:13px;color:var(--green);line-height:1.7;padding:9px 13px;background:var(--green-dim);border:1px solid var(--green-border);border-radius:var(--radius)}
+.redline-pushback{font-size:13px;color:var(--text2);line-height:1.7}
+.redline-why{font-size:13px;color:rgba(79,156,249,.85);line-height:1.7;padding:9px 13px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius);margin-top:9px}
+.quiz-q-text{font-size:15px;color:var(--text);line-height:1.65;margin-bottom:14px;font-weight:500}
+.quiz-opt{width:100%;padding:11px 15px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface2);color:var(--text2);font-size:13px;cursor:pointer;text-align:left;margin-bottom:7px;transition:all .15s;font-family:'Outfit',sans-serif}
+.quiz-opt:hover:not([disabled]){border-color:var(--border2);background:var(--surface3);color:var(--text)}
+.quiz-opt.correct{background:var(--green-dim);border-color:var(--green-border);color:var(--green)}
+.quiz-opt.wrong{background:var(--red-dim);border-color:var(--red-border);color:var(--red)}
+.quiz-feedback{font-size:13px;color:var(--text2);line-height:1.65;padding:11px 15px;background:var(--surface2);border-radius:var(--radius);margin-top:9px;display:none;border:1px solid var(--border)}
+.quiz-feedback.show{display:block}
+.score-display{font-family:'DM Mono',monospace;font-size:13px;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 13px;border-radius:20px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:10px}
+.nav-mid{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)}
+.overview-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:22px}
+.overview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px;cursor:pointer;transition:all .2s;text-align:left;width:100%;border:none}
+.overview-card:hover{border:1px solid var(--border2);background:var(--surface2);transform:translateY(-2px)}
+.overview-card{border:1px solid var(--border)}
+.ov-icon{font-size:22px;margin-bottom:9px}
+.ov-title{font-family:'DM Serif Display',serif;font-size:15px;color:var(--text);margin-bottom:3px}
+.ov-sub{font-size:11px;color:var(--text3);line-height:1.5}
+.ov-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:8px}
+.soc-nav-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:18px}
+.soc-pill{padding:5px 12px;border-radius:20px;font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text3);transition:all .15s}
+.soc-pill:hover{color:var(--text2);border-color:var(--border2)}
+.soc-pill.active{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
+.divider{height:1px;background:var(--border);margin:22px 0}
+/* TIERING SIM */
+.tier-sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.tier-sim-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px}
+.sim-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.sim-select{width:100%;padding:9px 13px;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;outline:none;cursor:pointer}
+.sim-select:focus{border-color:var(--accent-border)}
+.sim-result-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin-bottom:14px}
+.sim-tier-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:5px}
+.sim-tier-value{font-family:'DM Serif Display',serif;font-size:40px;margin-bottom:5px}
+.sim-requirements{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.sim-req-item{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:10px 13px;font-size:12px}
+.sim-req-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:3px}
+.sim-req-val{color:var(--text2)}
+/* FRAMEWORKS */
+.fw-tabs{display:flex;gap:5px;margin-bottom:18px;flex-wrap:wrap}
+.fw-tab{padding:6px 14px;border-radius:20px;font-size:12px;font-family:'DM Mono',monospace;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text3);transition:all .15s}
+.fw-tab:hover{color:var(--text2);border-color:var(--border2)}
+.fw-tab.active{background:var(--purple-dim);border-color:rgba(167,139,250,.3);color:var(--purple)}
+.fw-panel{display:none}.fw-panel.active{display:block}
+.fw-domain{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:9px}
+.fw-domain-head{display:flex;align-items:center;gap:10px;margin-bottom:0;cursor:pointer}
+.fw-domain-name{font-size:14px;font-weight:600;color:var(--text)}
+.fw-domain-body{font-size:13px;color:var(--text2);line-height:1.7;display:none;margin-top:12px}
+.fw-domain-body.open{display:block}
+.fw-controls{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.fw-ctrl{background:var(--surface2);border-radius:8px;padding:8px 11px;font-size:12px;color:var(--text2);border:1px solid var(--border)}
+/* SCORECARD */
+.sc-vendor-btns{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.sc-vendor-btn{padding:7px 16px;border-radius:20px;font-size:12px;font-family:'DM Mono',monospace;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text3);transition:all .15s}
+.sc-vendor-btn.active{background:var(--surface2);border-color:var(--border2);color:var(--text)}
+.sc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.sc-metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center}
+.sc-metric-val{font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:3px}
+.sc-metric-label{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace}
+.sc-domain-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.sc-domain-row:last-child{border-bottom:none}
+.sc-domain-name{flex:1;color:var(--text2)}
+.sc-bar-wrap{flex:2;height:6px;background:var(--surface3);border-radius:3px;overflow:hidden}
+.sc-bar{height:100%;border-radius:3px;transition:width .6s ease}
+.sc-score{font-family:'DM Mono',monospace;font-size:12px;color:var(--text3);width:36px;text-align:right}
+.sc-finding{padding:10px 13px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:6px;font-size:13px}
+/* CHEAT SHEET */
+.cs-section{margin-bottom:28px}
+.cs-section-title{font-family:'DM Serif Display',serif;font-size:20px;color:var(--text);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.cs-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px}
+.cs-table th{text-align:left;padding:8px 12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);font-weight:500}
+.cs-table td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.5;vertical-align:top}
+.cs-table tr:last-child td{border-bottom:none}
+.cs-table tr:hover td{background:var(--surface2)}
+.cs-formula{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 18px;font-family:'DM Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:10px}
+.cs-formula-label{font-size:9px;color:var(--text3);margin-bottom:4px;letter-spacing:.08em;text-transform:uppercase;font-family:'DM Mono',monospace}
+.cs-two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.cs-pill-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+/* GLOSSARY */
+.gloss-search-wrap{position:relative;margin-bottom:16px}
+.gloss-search{width:100%;padding:11px 16px 11px 40px;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.gloss-search:focus{border-color:var(--accent-border)}
+.gloss-search::placeholder{color:var(--text3)}
+.gloss-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:15px;pointer-events:none}
+.gloss-filter-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.gf-btn{padding:4px 12px;border-radius:20px;font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text3);transition:all .15s}
+.gf-btn:hover{color:var(--text2);border-color:var(--border2)}
+.gf-btn.active{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
+.gloss-alpha-bar{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:14px}
+.alpha-btn{width:26px;height:26px;border-radius:5px;font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text3);transition:all .15s;display:flex;align-items:center;justify-content:center}
+.alpha-btn:hover{background:var(--surface2);color:var(--text2)}
+.alpha-btn.active{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
+.alpha-btn.has-terms{color:var(--text2)}
+.gloss-letter-group{margin-bottom:26px}
+.gloss-letter-head{font-family:'DM Serif Display',serif;font-size:26px;color:var(--accent);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border)}
+.gloss-term-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px 17px;margin-bottom:7px;transition:border-color .2s}
+.gloss-term-card:hover{border-color:var(--border2)}
+.gloss-term-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gloss-term-def{font-size:13px;color:var(--text2);line-height:1.7}
+.gloss-term-context{font-size:12px;color:var(--text3);margin-top:6px;font-style:italic;line-height:1.5;padding-left:10px;border-left:2px solid var(--border2)}
+.gloss-tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;border:1px solid}
+.tag-lifecycle{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
+.tag-soc2{background:var(--purple-dim);border-color:rgba(167,139,250,.3);color:var(--purple)}
+.tag-contract{background:var(--amber-dim);border-color:var(--amber-border);color:var(--amber)}
+.tag-hipaa{background:var(--red-dim);border-color:var(--red-border);color:var(--red)}
+.tag-risk{background:var(--green-dim);border-color:var(--green-border);color:var(--green)}
+.tag-tools{background:var(--surface3);border-color:var(--border2);color:var(--text2)}
+.gloss-empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:14px}
+.gloss-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);margin-bottom:14px}
+/* COMPLETE BANNER */
+.complete-banner{padding:24px;background:var(--green-dim);border:1px solid var(--green-border);border-radius:var(--radius-lg);text-align:center;margin-top:18px}
+.complete-pct{font-family:'DM Serif Display',serif;font-size:48px;color:var(--green);margin-bottom:7px}
+.complete-msg{font-size:14px;color:rgba(61,214,140,.8)}
+#quiz-result{display:none}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav class="sidebar">
+  <div class="logo">
+    <div class="logo-eyebrow">Complete Training</div>
+    <div class="logo-title">TPRM <em>Mastery</em></div>
+  </div>
+  <div class="nav-section">Core Modules</div>
+  <button class="nav-item active" onclick="showPanel('overview',this)"><span class="nav-num">00</span> Home</button>
+  <button class="nav-item" onclick="showPanel('lifecycle',this)"><span class="nav-num">01</span> Lifecycle — 6 Stages</button>
+  <button class="nav-item" onclick="showPanel('soc2',this)"><span class="nav-num">02</span> SOC 2 Deep Dive</button>
+  <button class="nav-item" onclick="showPanel('behavioral',this)"><span class="nav-num">03</span> Behavioral Scenarios</button>
+  <button class="nav-item" onclick="showPanel('redline',this)"><span class="nav-num">04</span> Contract Redlining</button>
+  <div class="nav-section">Tools & Reference</div>
+  <button class="nav-item" onclick="showPanel('tiering',this)"><span class="nav-num">05</span> Tiering Simulator</button>
+  <button class="nav-item" onclick="showPanel('frameworks',this)"><span class="nav-num">06</span> Risk Frameworks</button>
+  <button class="nav-item" onclick="showPanel('scorecard',this)"><span class="nav-num">07</span> Vendor Scorecard</button>
+  <button class="nav-item" onclick="showPanel('cheatsheet',this)"><span class="nav-num">08</span> Cheat Sheet</button>
+  <button class="nav-item" onclick="showPanel('glossary',this)"><span class="nav-num">09</span> Glossary <span class="nav-badge">55+</span></button>
+  <div class="nav-section">Assessment</div>
+  <button class="nav-item" onclick="showPanel('quiz',this)"><span class="nav-num">10</span> Final Assessment</button>
+  <div class="sidebar-footer">
+    <div class="progress-summary" id="sidebar-progress-label">0 of 10 modules visited</div>
+    <div class="sidebar-progress"><div class="sidebar-progress-fill" id="sidebar-progress-fill"></div></div>
+  </div>
+</nav>
+<main class="main">
+<!-- OVERVIEW -->
+<div class="panel active" id="panel-overview">
+  <div class="panel-eyebrow">Welcome</div>
+  <h1 class="panel-title">TPRM Mastery<br>Complete Training</h1>
+  <p class="panel-sub">Your one-stop shop for everything TPRM — 10 modules covering lifecycle, SOC 2, behavioral coaching, contract negotiation, tiering simulation, risk frameworks, vendor scorecards, a cheat sheet, 55-term glossary, and a 15-question final assessment.</p>
+  <div class="overview-grid">
+    <button class="overview-card" onclick="showPanelByName('lifecycle')"><div class="ov-icon">&#x1F5FA;</div><div class="ov-title">Lifecycle</div><div class="ov-sub">6 stages intake to offboarding with interview angles</div><div class="ov-count">6 stages</div></button>
+    <button class="overview-card" onclick="showPanelByName('soc2')"><div class="ov-icon">&#x1F4CB;</div><div class="ov-title">SOC 2 Deep Dive</div><div class="ov-sub">Mock report with live annotations, red flags, CUECs</div><div class="ov-count">6 sections</div></button>
+    <button class="overview-card" onclick="showPanelByName('behavioral')"><div class="ov-icon">&#x1F4AC;</div><div class="ov-title">Behavioral Scenarios</div><div class="ov-sub">STAR-method model answers with coaching</div><div class="ov-count">5 scenarios</div></button>
+    <button class="overview-card" onclick="showPanelByName('redline')"><div class="ov-icon">&#x270F;</div><div class="ov-title">Contract Redlining</div><div class="ov-sub">Vendor language, push-back positions, acceptable fixes</div><div class="ov-count">5 clauses</div></button>
+    <button class="overview-card" onclick="showPanelByName('tiering')"><div class="ov-icon">&#x1F3AF;</div><div class="ov-title">Tiering Simulator</div><div class="ov-sub">Score any vendor in real time, see all downstream requirements</div><div class="ov-count">Interactive</div></button>
+    <button class="overview-card" onclick="showPanelByName('frameworks')"><div class="ov-icon">&#x1F9E9;</div><div class="ov-title">Risk Frameworks</div><div class="ov-sub">NIST CSF, ISO 27001, HITRUST with cross-mapping table</div><div class="ov-count">3 frameworks</div></button>
+    <button class="overview-card" onclick="showPanelByName('scorecard')"><div class="ov-icon">&#x1F4CA;</div><div class="ov-title">Vendor Scorecard</div><div class="ov-sub">3 mock vendor assessments — practice reading findings</div><div class="ov-count">3 vendors</div></button>
+    <button class="overview-card" onclick="showPanelByName('cheatsheet')"><div class="ov-icon">&#x26A1;</div><div class="ov-title">Cheat Sheet</div><div class="ov-sub">Formulas, tables, timelines — everything the night before</div><div class="ov-count">Print-ready</div></button>
+    <button class="overview-card" onclick="showPanelByName('glossary')"><div class="ov-icon">&#x1F4D6;</div><div class="ov-title">Glossary</div><div class="ov-sub">55+ terms, searchable by keyword and category</div><div class="ov-count">55+ terms</div></button>
+  </div>
+  <div class="card card-info"><div class="card-title" style="color:var(--accent)">How to use this training</div><div class="card-body" style="color:rgba(79,156,249,.8)">Start with Lifecycle to build the mental model. SOC 2 Deep Dive to learn how to actually read a report. Behavioral Scenarios until the STAR structure is automatic. Use the Tiering Simulator to practice scoring out loud. Hit the Cheat Sheet the night before. Finish with the Final Assessment to find your gaps.</div></div>
+</div>
+<!-- LIFECYCLE -->
+<div class="panel" id="panel-lifecycle">
+  <div class="panel-eyebrow">Module 01</div>
+  <h1 class="panel-title">TPRM Lifecycle</h1>
+  <p class="panel-sub">The 6 stages every practitioner must own — from vendor request to archived evidence.</p>
+  <div class="prog-track"><div class="prog-fill" id="lc-prog" style="width:16.6%"></div></div>
+  <div class="step-dots" id="lc-dots"></div>
+  <div id="lc-content"></div>
+  <div class="nav-row">
+    <button class="btn" id="lc-prev" onclick="lcMove(-1)" disabled>&#8592; Previous</button>
+    <span class="nav-mid" id="lc-label">Stage 1 of 6</span>
+    <button class="btn btn-primary" id="lc-next" onclick="lcMove(1)">Next &#8594;</button>
+  </div>
+</div>
+<!-- SOC 2 -->
+<div class="panel" id="panel-soc2">
+  <div class="panel-eyebrow">Module 02</div>
+  <h1 class="panel-title">SOC 2 Deep Dive</h1>
+  <p class="panel-sub">Walk through a realistic mock SOC 2 for CloudPay Solutions. Click annotation buttons as you read — they reveal exactly what to flag and why.</p>
+  <div class="soc-nav-pills" id="soc-pills"></div>
+  <div id="soc-content"></div>
+  <div class="nav-row">
+    <button class="btn" id="soc-prev" onclick="socMove(-1)" disabled>&#8592; Previous</button>
+    <span class="nav-mid" id="soc-label">Section 1 of 6</span>
+    <button class="btn btn-primary" id="soc-next" onclick="socMove(1)">Next &#8594;</button>
+  </div>
+</div>
+<!-- BEHAVIORAL -->
+<div class="panel" id="panel-behavioral">
+  <div class="panel-eyebrow">Module 03</div>
+  <h1 class="panel-title">Behavioral Scenarios</h1>
+  <p class="panel-sub">Five real interview situations. Think through your answer first — then reveal the STAR-method model response.</p>
+  <div class="step-dots" id="beh-dots"></div>
+  <div id="beh-content"></div>
+  <div class="nav-row">
+    <button class="btn" id="beh-prev" onclick="behMove(-1)" disabled>&#8592; Previous</button>
+    <span class="nav-mid" id="beh-label">Scenario 1 of 5</span>
+    <button class="btn btn-primary" id="beh-next" onclick="behMove(1)">Next &#8594;</button>
+  </div>
+</div>
+<!-- REDLINE -->
+<div class="panel" id="panel-redline">
+  <div class="panel-eyebrow">Module 04</div>
+  <h1 class="panel-title">Contract Redlining</h1>
+  <p class="panel-sub">Five clauses every TPRM analyst must negotiate. Read the vendor language, make your verdict — then reveal the reasoning and the fix.</p>
+  <div class="card card-warning" style="margin-bottom:18px"><div class="card-body" style="color:var(--amber);font-size:13px">Decide acceptable or push-back before revealing the answer. This trains instinct, not just knowledge.</div></div>
+  <div id="redline-content"></div>
+</div>
+<!-- TIERING SIM -->
+<div class="panel" id="panel-tiering">
+  <div class="panel-eyebrow">Module 05</div>
+  <h1 class="panel-title">Tiering Simulator</h1>
+  <p class="panel-sub">Score any vendor in real time. Select data sensitivity and business criticality — the tier, score, and all downstream requirements update instantly.</p>
+  <div class="tier-sim-grid">
+    <div class="tier-sim-card"><div class="sim-label">Data sensitivity</div>
+      <select class="sim-select" id="sim-ds" onchange="simCalc()">
+        <option value="1">1 — Public / no PII</option><option value="2">2 — Internal / low PII (names, emails)</option>
+        <option value="3" selected>3 — Sensitive PII (SSNs, DOBs, phone)</option>
+        <option value="4">4 — Financial / PHI-adjacent (bank accounts)</option>
+        <option value="5">5 — PHI / ePHI / regulated financial</option>
+      </select>
+    </div>
+    <div class="tier-sim-card"><div class="sim-label">Business criticality</div>
+      <select class="sim-select" id="sim-bc" onchange="simCalc()">
+        <option value="1">1 — Nice to have (replaceable in days)</option><option value="2">2 — Important (some disruption if down)</option>
+        <option value="3" selected>3 — Significant (key workflow dependency)</option>
+        <option value="4">4 — High (mission critical)</option>
+        <option value="5">5 — Essential (ops stop without this vendor)</option>
+      </select>
+    </div>
+  </div>
+  <div id="sim-result"></div>
+  <div class="card card-info"><div class="card-title" style="color:var(--accent)">How to narrate this in an interview</div><div class="card-body" style="color:rgba(79,156,249,.85)">"I would score data sensitivity at 4 because they handle bank account numbers — that is regulated financial data. Business criticality at 3 because payroll runs biweekly — if they go down, we feel it within days. That puts inherent risk at 12, landing solidly in High tier, which means SIG Core, annual full assessment, and DPA required." That three-part narration — inputs, score, and downstream requirements — is the answer interviewers want.</div></div>
+</div>
+<!-- FRAMEWORKS -->
+<div class="panel" id="panel-frameworks">
+  <div class="panel-eyebrow">Module 06</div>
+  <h1 class="panel-title">Risk Frameworks</h1>
+  <p class="panel-sub">The three frameworks you will be expected to know: NIST CSF, ISO 27001, and HITRUST. How each works, how they map, and how to use them in TPRM assessments.</p>
+  <div class="fw-tabs">
+    <button class="fw-tab active" onclick="fwSwitch('nist',this)">NIST CSF</button>
+    <button class="fw-tab" onclick="fwSwitch('iso',this)">ISO 27001</button>
+    <button class="fw-tab" onclick="fwSwitch('hitrust',this)">HITRUST</button>
+    <button class="fw-tab" onclick="fwSwitch('mapping',this)">Cross-Mapping</button>
+  </div>
+  <div id="fw-content"></div>
+</div>
+<!-- SCORECARD -->
+<div class="panel" id="panel-scorecard">
+  <div class="panel-eyebrow">Module 07</div>
+  <h1 class="panel-title">Vendor Scorecard</h1>
+  <p class="panel-sub">Three mock vendors with real assessment data. Practice reading a scorecard, identifying critical findings, and forming your recommendation.</p>
+  <div class="sc-vendor-btns" id="sc-vendor-btns"></div>
+  <div id="sc-content"></div>
+</div>
+<!-- CHEAT SHEET -->
+<div class="panel" id="panel-cheatsheet">
+  <div class="panel-eyebrow">Module 08</div>
+  <h1 class="panel-title">Cheat Sheet</h1>
+  <p class="panel-sub">Everything you need the night before — formulas, tier tables, opinion types, contract clauses, HIPAA rules, red flags, timelines, and encryption standards.</p>
+  <div id="cs-content"></div>
+</div>
+<!-- GLOSSARY -->
+<div class="panel" id="panel-glossary">
+  <div class="panel-eyebrow">Module 09</div>
+  <h1 class="panel-title">Glossary</h1>
+  <p class="panel-sub">55+ terms defined and searchable. The interview context note on each term is where the real value is — it tells you how the term actually shows up in assessments.</p>
+  <div class="gloss-search-wrap"><span class="gloss-search-icon">&#x1F50D;</span><input class="gloss-search" id="gloss-search" type="text" placeholder="Search terms, definitions, acronyms..." oninput="glossFilter()"></div>
+  <div class="gloss-filter-row" id="gloss-filters"></div>
+  <div class="gloss-alpha-bar" id="gloss-alpha"></div>
+  <div class="gloss-count" id="gloss-count"></div>
+  <div id="gloss-body"></div>
+</div>
+<!-- QUIZ -->
+<div class="panel" id="panel-quiz">
+  <div class="panel-eyebrow">Module 10</div>
+  <h1 class="panel-title">Final Assessment</h1>
+  <p class="panel-sub">15 questions covering all modules. Some answers look right but are wrong for a nuanced reason — read carefully.</p>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+    <span class="score-display" id="quiz-score">0 / 0</span>
+    <button class="btn btn-sm" onclick="resetQuiz()">&#x21BA; Restart</button>
+  </div>
+  <div id="quiz-content"></div>
+  <div id="quiz-result"></div>
+</div>
+</main>
+</div>
+<script>
+/* NAV */
+const visitedPanels=new Set(['overview']);
+const allPanels=['overview','lifecycle','soc2','behavioral','redline','tiering','frameworks','scorecard','cheatsheet','glossary','quiz'];
+function showPanel(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  visitedPanels.add(id);
+  const count=allPanels.filter(p=>visitedPanels.has(p)).length;
+  document.getElementById('sidebar-progress-fill').style.width=Math.round((count/allPanels.length)*100)+'%';
+  document.getElementById('sidebar-progress-label').textContent=count+' of '+allPanels.length+' modules visited';
+  if(id==='redline')renderRedline();
+  if(id==='tiering')simCalc();
+  if(id==='frameworks')fwSwitch('nist',document.querySelector('.fw-tab'));
+  if(id==='scorecard')scRender(0);
+  if(id==='cheatsheet')renderCheatsheet();
+  if(id==='glossary')initGlossary();
+  if(id==='quiz'&&!quizInited){quizInited=true;resetQuiz();}
+}
+function showPanelByName(id){
+  const btn=Array.from(document.querySelectorAll('.nav-item')).find(b=>b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"));
+  showPanel(id,btn);
+}
+
+/* LIFECYCLE */
+const lcStages=[
+  {num:'01',color:'var(--accent-dim)',tc:'var(--accent)',bc:'var(--accent-border)',title:'Intake & Tiering',sub:'The gate that sets everything downstream',
+   items:['Business submits: service description, data types, and access model (read-only, privileged, integrated, or no access).','Score inherent risk: Data Sensitivity × Business Criticality. Both inputs scored 1–5. Formula is MULTIPLICATIVE — not additive.','Output = tier: Critical / High / Moderate / Low. Drives questionnaire depth, contract terms, monitoring cadence, and reassessment frequency.','A vendor with maximum criticality but zero sensitive data still lands at High — any high value times a moderate value is significant.','Tier drives: SIG version, which contracts are required, whether OFAC screening applies, how often you reassess, and monitoring intensity.'],
+   tip:'Lead with the formula → tier table → what each tier unlocks downstream. That three-part structure signals practitioner-level thinking, not textbook recitation.'},
+  {num:'02',color:'var(--green-dim)',tc:'var(--green)',bc:'var(--green-border)',title:'Due Diligence',sub:'Evidence collection before any judgment',
+   items:['Pull SOC 2 Type 2. If older than 12 months, request a bridge letter — management assertion covering the gap. No bridge letter = stale evidence.','Verify ISO 27001 cert: scope, expiry date, surveillance vs. full recertification. Check what systems are in scope.','Pen test summary: executive summary + finding counts are acceptable. Flag open critical/high findings and remediation timelines.','BC/DR plan: validate RTO and RPO align with your requirements. If the vendor goes down, how long can your org survive?','Sub-processor list: every entity touching your data = inherited risk. Review for unauthorized fourth-party exposure.','Send SIG Lite (Moderate/Low) or SIG Core (Critical/High). Cross-walk SIG against SOC 2 — discrepancies are red flags. Run OFAC screening for Critical vendors.'],
+   tip:'Bridge letters separate a practitioner from someone who has only read about TPRM. If the SOC period ended 14 months ago with no bridge letter — say so. Interviewers notice.'},
+  {num:'03',color:'var(--amber-dim)',tc:'var(--amber)',bc:'var(--amber-border)',title:'Risk Assessment',sub:'Convert evidence into a scored, documented risk position',
+   items:['Map SIG findings and SOC 2 exceptions to NIST CSF (Identify, Protect, Detect, Respond, Recover) or ISO 27001 Annex A controls.','Score residual risk: Inherent Risk − Control Effectiveness. Each gap gets a likelihood and impact rating.','For every finding: document the evidence relied on, the control reference mapped, and the named owner for follow-up. Your work must outlive the assessment.','Identify compensating controls on your side — they reduce residual risk even if the vendor gap stays open.','Route to: accept (documented rationale + sign-off), remediate (tracked with milestones), or transfer (insurance / contractual liability).'],
+   tip:'Risk acceptance is the most tested concept here. Key: acceptance is not inaction — it is a documented decision with a named owner, rationale, and review date. This is a senior-level distinction interviewers look for.'},
+  {num:'04',color:'var(--red-dim)',tc:'var(--red)',bc:'var(--red-border)',title:'Contract & Onboarding',sub:'Embed security requirements before access is granted',
+   items:['Attach Security Addendum: AES-256 at rest, TLS 1.2+ in transit, access controls, logging, IR obligations, pen testing cadence.','DPA (Data Processing Agreement): required for personal data under GDPR/CCPA. Covers processing purposes, data subject rights, sub-processor controls.','BAA (Business Associate Agreement): required any time vendor touches PHI. Non-negotiable in healthcare.','Validate CUECs: pull every Complementary User Entity Control from the SOC 2, create tracker, assign internal owners, validate evidence. If skipped, the SOC opinion does not extend to your environment.','Provision access under least privilege. Document what was provisioned, who approved, and when — this becomes your offboarding checklist.'],
+   tip:'CUECs are the most commonly missed step in the field and in interviews. The auditor does not test whether you run those controls — that is entirely your responsibility. Not validating CUECs is a silent, invisible control gap.'},
+  {num:'05',color:'var(--accent-dim)',tc:'var(--accent)',bc:'var(--accent-border)',title:'Continuous Monitoring',sub:'Risk does not stop at contract signature',
+   items:['Annual reassessment by tier: Critical = full re-assessment + continuous monitoring. High = annual SIG refresh + new SOC on issuance. Moderate = annual attestation. Low = biennial.','Review new SOC 2 reports as issued. Same exception two consecutive cycles = material gap requiring formal escalation — not just a note.','Monitor breach notification channels. Contract SLA typically 24–72 hours from discovery. HIPAA OCR clock is 60 days from discovery.','Track BitSight / SecurityScorecard cyber ratings. A 50+ point drop signals a real change in security posture — set automated alerts.','Watch OFAC sanctions updates for Critical vendors via automated feed. Newly sanctioned vendor = immediate escalation, not next annual review.'],
+   tip:'"How do you know a vendor is still safe between annual reviews?" BitSight, SecurityScorecard, and breach notification monitoring. Tier drives how closely you watch.'},
+  {num:'06',color:'var(--surface3)',tc:'var(--text2)',bc:'var(--border2)',title:'Offboarding',sub:'Close cleanly — leave nothing behind',
+   items:['Obtain signed data return or destruction attestation before cutting any access. Must name data types, destruction method, and date.','Revoke ALL access: user accounts, federated SSO, API keys, service accounts, OAuth tokens, shared credentials. Use the access inventory built at onboarding.','Final security review: confirm no residual data exposure, no open integrations, no lingering scheduled jobs touching your systems.','Archive the complete vendor record: SIG responses, SOC reports, contracts, attestations, risk decisions, remediation evidence. Retain 3+ years per policy.'],
+   tip:'Federated SSO and API keys are the most commonly missed at offboarding. If you built the access inventory at onboarding, revocation is a 20-minute checklist. No inventory = a hunt that misses things every time.'},
+];
+let lcIdx=0;
+function lcRender(){
+  const s=lcStages[lcIdx];
+  document.getElementById('lc-prog').style.width=(((lcIdx+1)/6)*100)+'%';
+  document.getElementById('lc-label').textContent='Stage '+(lcIdx+1)+' of 6';
+  document.getElementById('lc-prev').disabled=lcIdx===0;
+  document.getElementById('lc-next').textContent=lcIdx===5?'Complete \u2713':'Next \u2192';
+  document.getElementById('lc-dots').innerHTML=lcStages.map((x,i)=>`<div class="step-dot ${i<lcIdx?'done':i===lcIdx?'active':''}" onclick="lcGo(${i})"></div>`).join('');
+  document.getElementById('lc-content').innerHTML=`<div class="stage-wrap"><div class="stage-header"><div class="stage-num" style="background:${s.color};color:${s.tc};border:1px solid ${s.bc}">${s.num}</div><div><div class="stage-title">${s.title}</div><div class="stage-sub">${s.sub}</div></div></div><ul class="checklist">${s.items.map(it=>`<li><span class="check-icon">&#x25B8;</span>${it}</li>`).join('')}</ul><div class="interview-tip"><div class="tip-label">Interview angle</div><div class="tip-body">${s.tip}</div></div></div>`;
+}
+function lcMove(d){lcIdx=Math.max(0,Math.min(5,lcIdx+d));lcRender();}
+function lcGo(i){lcIdx=i;lcRender();}
+lcRender();
+
+/* SOC 2 */
+const socSections=[
+  {pill:'What is SOC 2',title:'What a SOC 2 is — and is not',html:`<div class="card"><div class="card-title">SOC 2 = an auditor opinion on controls over a defined period</div><div class="card-body">Issued by an independent CPA firm after testing against the AICPA Trust Services Criteria (TSC). Five TSC categories: Security (required), Availability, Processing Integrity, Confidentiality, and Privacy. Type 2 = operating effectiveness over 12 months.</div></div><div class="card card-danger"><div class="card-title">What it is NOT</div><div class="card-body">Not a certification. Not a guarantee. Not a pass/fail. A clean opinion means controls operated as described — not that they meet your policy threshold. A vendor can have AES-128 on SSN data and still receive an unqualified opinion if that is what their system description says they use.</div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="card"><div class="card-title">Type 1</div><div class="card-body">Point-in-time. Assesses design at a single date. Does not test operating effectiveness. Less valuable for TPRM.</div></div><div class="card" style="border-color:var(--accent-border)"><div class="card-title">Type 2 — what you want</div><div class="card-body">Period-of-time, 12 months standard. Tests operating effectiveness throughout. Required for meaningful TPRM assurance.</div></div></div>`},
+  {pill:'Section I — Opinion',title:'Section I — The auditor opinion',html:`<p class="section-label">Read this first — but do not stop here.</p><div class="soc-report"><div class="soc-header"><div class="soc-firm">Deloitte & Touche LLP — Independent Service Auditor's Report</div><div class="soc-title">CloudPay Solutions, Inc. — SOC 2 Type 2</div><div class="soc-meta">Period: January 1, 2024 – December 31, 2024 | Issued: February 14, 2025</div></div><div class="soc-section"><div class="soc-section-title">Section I — Opinion</div><div class="soc-text">We have examined CloudPay Solutions' description of its payroll processing system and operating effectiveness of controls for the period January 1–December 31, 2024.</div><div class="opinion-block" style="background:var(--green-dim);border:1px solid var(--green-border)"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:5px">Opinion</div><div style="font-size:13px;color:rgba(61,214,140,.85);line-height:1.6">In our opinion, in all material respects, the description is fairly presented and the controls operated effectively throughout the period. <strong>Unqualified opinion.</strong></div></div><span class="ann-btn" onclick="toggleAnn('ann1')">What does this mean? &#x2192;</span><div class="annotation" id="ann1"><strong>Unqualified = clean.</strong> Do NOT stop here. A clean opinion can still have immaterial exceptions (Section IV), weak encryption (Section II), or carved-out sub-processors. Always read the full report. Check: is the period 12 months? Is the report within 12 months? If older — request a bridge letter.</div></div></div><div class="card" style="margin-top:12px"><div class="card-title">4 opinion types — know these cold</div><div style="display:flex;flex-direction:column;gap:9px;margin-top:9px"><div style="display:flex;gap:9px;align-items:flex-start"><span class="badge badge-green">Unqualified</span><span style="font-size:13px;color:var(--text2)">Clean. Controls operating effectively.</span></div><div style="display:flex;gap:9px;align-items:flex-start"><span class="badge badge-amber">Qualified</span><span style="font-size:13px;color:var(--text2)">Material exceptions. Controls failed or not tested. Escalate — do not proceed without CISO sign-off.</span></div><div style="display:flex;gap:9px;align-items:flex-start"><span class="badge badge-red">Adverse</span><span style="font-size:13px;color:var(--text2)">System fails trust service criteria. Systemic failure. Consider walking away.</span></div><div style="display:flex;gap:9px;align-items:flex-start"><span class="badge badge-red">Disclaimer</span><span style="font-size:13px;color:var(--text2)">Auditor could not conclude — scope limitations. Treat like adverse. Escalate.</span></div></div></div>`},
+  {pill:'Section II — System',title:'Section II — System description',html:`<p class="section-label">Read this to understand what was tested — and what was not</p><div class="soc-report"><div class="soc-header"><div class="soc-firm">CloudPay Solutions — Section II</div><div class="soc-title">Description of the CloudPay Payroll Processing System</div></div><div class="soc-section"><div class="soc-section-title">Infrastructure</div><div class="soc-text">Hosted on AWS (US-East-1 and US-West-2). Physical security controls managed by AWS are <strong style="color:var(--amber)">carved out</strong> of this report.</div><span class="ann-btn" onclick="toggleAnn('ann2')">"Carved out" — what does this mean? &#x2192;</span><div class="annotation" id="ann2"><strong>Carved-out sub-service orgs are excluded from scope.</strong> The auditor did not test AWS physical controls. You must independently obtain and review the AWS SOC 2. Common and acceptable — but YOU own the follow-up. If you do not, you have an untested gap.</div></div><div class="soc-section"><div class="soc-section-title">Data processed</div><div class="soc-text">Processes employee payroll data: names, SSNs, bank accounts, compensation, tax IDs. Classified as confidential. <strong style="color:var(--red)">Encryption at rest: AES-128.</strong> Encryption in transit: TLS 1.2.</div><span class="ann-btn" onclick="toggleAnn('ann3')">Flag this? &#x2192;</span><div class="annotation" id="ann3"><strong>AES-128 is a red flag for SSN and bank data.</strong> Industry standard is AES-256. The opinion can still be unqualified because the auditor tests whether controls operated as described — not whether the description meets your policy. This is exactly why you read Section II, not just the opinion. If your Security Addendum requires AES-256, this is both a risk finding AND a contract gap. Document and escalate before onboarding.</div></div><div class="soc-section"><div class="soc-section-title">System boundaries</div><div class="soc-text">Scope covers production environment only. <strong style="color:var(--amber)">Dev, staging, customer support tooling, and HR systems are excluded.</strong></div><span class="ann-btn" onclick="toggleAnn('ann4')">Why does scope matter? &#x2192;</span><div class="annotation" id="ann4"><strong>Exclusions define what was not tested.</strong> If your data ever touches their dev or staging environment (even during support escalations), those controls are untested. Ask explicitly: does my data ever leave the production boundary? Require a written answer.</div></div></div>`},
+  {pill:'Section IV — Exceptions',title:'Section IV — Exceptions & findings',html:`<p class="section-label">This is where the real work is — read every single line</p><div class="soc-report"><div class="soc-header"><div class="soc-firm">CloudPay Solutions — Section IV</div><div class="soc-title">Tests of controls and results — January 1–December 31, 2024</div></div><div class="soc-section"><div class="soc-section-title">CC6.1 — Logical access controls</div><div class="exc-row"><span class="exc-id">CC6.1a</span><div><span style="font-size:12px;color:var(--green);font-weight:500">No exception</span><div style="font-size:13px;color:var(--text2);margin-top:3px;line-height:1.5">Tested 25 user access requests. All had documented approval prior to provisioning.</div></div></div><div class="exc-row"><span class="exc-id">CC6.1b</span><div><span class="badge badge-amber" style="margin-bottom:5px">Exception noted</span><div style="font-size:13px;color:var(--text2);margin-top:3px;line-height:1.5">Q3 access review completed 47 days after quarter end (vs. 30-day policy). Two terminated employees retained access 12 additional days.</div><div style="font-size:12px;color:var(--text3);margin-top:5px;font-style:italic">Management response: Automated reminders added in Q4. Q4 review completed within policy.</div><span class="ann-btn" onclick="toggleAnn('ann5')">How serious? &#x2192;</span><div class="annotation" id="ann5"><strong>Meaningful finding.</strong> Two terminated employees had active access for 12 days. First check: was this exception in the prior-year SOC? If yes — two consecutive cycles — material gap requiring formal remediation with named owner and deadline. Second: were these terminated employees from your tenant? If so, escalate to your security team immediately.</div></div></div></div><div class="soc-section"><div class="soc-section-title">A1.2 — Availability</div><div class="exc-row"><span class="exc-id">A1.2a</span><div><span class="badge badge-amber" style="margin-bottom:5px">Exception noted</span><div style="font-size:13px;color:var(--text2);margin-top:3px;line-height:1.5">SLA: 99.9% uptime. Measured 2024: 99.6%. Three unplanned outages in Q2 totaling 26 hours.</div><span class="ann-btn" onclick="toggleAnn('ann6')">Escalate? &#x2192;</span><div class="annotation" id="ann6"><strong>Depends on your RTO.</strong> If payroll runs biweekly and your RTO is under 4 hours, this vendor failed your threshold three times in Q2. Document as a finding, escalate to risk owner, address at contract renewal — tighten the SLA or require service credits.</div></div></div></div></div><div class="card card-warning" style="margin-top:12px"><div class="card-title" style="color:var(--amber)">Exception review checklist</div><ul class="checklist" style="margin-top:9px"><li><span class="check-icon" style="color:var(--amber)">&#x25B8;</span>Read every exception on any opinion type — immaterial exceptions are still real failures</li><li><span class="check-icon" style="color:var(--amber)">&#x25B8;</span>Look for management remediation statement — no response = no accountability</li><li><span class="check-icon" style="color:var(--amber)">&#x25B8;</span>Compare to prior-year SOC — same exception twice = material gap requiring formal remediation plan</li><li><span class="check-icon" style="color:var(--amber)">&#x25B8;</span>Weight severity by your data type — access failure on SSN data is categorically different from failure on public data</li></ul></div>`},
+  {pill:'CUECs',title:'CUECs — the controls that are your responsibility',html:`<p class="section-label">Most commonly missed in SOC 2 review and in interviews</p><div class="card"><div class="card-title">What CUECs are</div><div class="card-body">Complementary User Entity Controls are listed in the SOC 2 as controls the vendor's system assumes your organization operates. The auditor does not test whether you run them. If you do not, the SOC opinion does not extend to your environment for those control areas.</div></div><div class="soc-report"><div class="soc-header"><div class="soc-title">CloudPay Solutions — Complementary User Entity Controls</div></div><div class="soc-section"><div class="cuec-row">CUEC-1: User entities are responsible for provisioning and deprovisioning access in a timely manner.<span class="badge badge-blue">IT / IAM</span></div><div class="cuec-row">CUEC-2: User entities are responsible for enforcing MFA for all administrator-level accounts.<span class="badge badge-amber">Security</span></div><div class="cuec-row" style="border-color:var(--red-border)">CUEC-3: User entities are responsible for reviewing audit logs exported from CloudPay quarterly.<span class="badge badge-red">Not assigned</span></div><div class="cuec-row" style="border-color:var(--red-border)">CUEC-4: User entities are responsible for encrypting PII files before uploading to the CloudPay SFTP endpoint.<span class="badge badge-red">Not assigned</span></div><div class="cuec-row">CUEC-5: User entities are responsible for maintaining a current inventory of all individuals with access.<span class="badge badge-amber">Security</span></div><div class="card card-danger" style="margin-top:12px"><div class="card-title" style="color:var(--red)">Two CUECs unassigned — this is YOUR gap</div><div class="card-body" style="color:rgba(240,82,82,.8)">CUEC-4 is critical: if your team does not encrypt files before SFTP upload and a breach occurs, the vendor SOC does not protect you. CUEC-4 says encryption was your responsibility. Pull every CUEC into a tracker, assign owners, validate evidence before closing the assessment.</div></div></div></div>`},
+  {pill:'Red Flags',title:'SOC 2 red flags — complete reference',html:`<p class="section-label">Any of these = document and escalate before proceeding</p>${[{sev:'Critical',cls:'badge-red',name:'Qualified, adverse, or disclaimer opinion',body:'Do not proceed without CISO sign-off and formal risk acceptance. Consider holding onboarding entirely.',bc:'var(--red-border)'},{sev:'High',cls:'badge-amber',name:'Report over 12 months old, no bridge letter',body:'Request a bridge letter. Vendor refusal = red flag itself. Document the gap and assess whether monitoring compensates.',bc:'var(--amber-border)'},{sev:'High',cls:'badge-amber',name:'Same exception two consecutive SOC reports',body:'Systemic control failure. Require formal remediation plan with named owner, milestones, evidence requirements, and biweekly tracking.',bc:'var(--amber-border)'},{sev:'High',cls:'badge-amber',name:'Critical sub-processors carved out of scope',body:'Obtain and review the sub-processors own SOC 2 independently. Carved out = untested, not safe.',bc:'var(--amber-border)'},{sev:'Medium',cls:'badge-amber',name:'Period under 6 months',body:'Limited assurance. Note the limitation and require the next full-period SOC when issued.',bc:'var(--border2)'},{sev:'Medium',cls:'badge-amber',name:'No CUECs listed',body:'Every meaningful SaaS platform has shared responsibility. Absence = either intentional exclusion or incomplete description. Ask directly.',bc:'var(--border2)'},{sev:'Watch',cls:'badge-gray',name:'Encryption weaker than policy standard in Section II',body:'AES-128 vs AES-256, or TLS 1.0/1.1 vs 1.2/1.3. Clean opinion + weak encryption = still your problem. Compare Section II to your Security Addendum.',bc:'var(--border)'}].map(rf=>`<div class="redflag-card" style="border-color:${rf.bc}"><div class="redflag-head"><span class="badge ${rf.cls}">${rf.sev}</span><span style="font-size:13px;font-weight:600;color:var(--text)">${rf.name}</span></div><div class="redflag-body">${rf.body}</div></div>`).join('')}`},
+];
+let socIdx=0;
+function socRender(){
+  const s=socSections[socIdx];
+  document.getElementById('soc-label').textContent='Section '+(socIdx+1)+' of '+socSections.length;
+  document.getElementById('soc-prev').disabled=socIdx===0;
+  document.getElementById('soc-next').textContent=socIdx===socSections.length-1?'Complete \u2713':'Next \u2192';
+  document.getElementById('soc-pills').innerHTML=socSections.map((x,i)=>`<button class="soc-pill ${i===socIdx?'active':''}" onclick="socGo(${i})">${x.pill}</button>`).join('');
+  document.getElementById('soc-content').innerHTML=`<p class="section-label">${s.title}</p>${s.html}`;
+}
+function socMove(d){socIdx=Math.max(0,Math.min(socSections.length-1,socIdx+d));socRender();}
+function socGo(i){socIdx=i;socRender();}
+function toggleAnn(id){document.getElementById(id).classList.toggle('show');}
+socRender();
+
+/* BEHAVIORAL */
+const behScenarios=[
+  {q:'You review a SOC 2 for a payroll vendor. Opinion is unqualified. But Section II shows AES-128 for SSNs and bank data. Your policy requires AES-256. Onboarding starts next week.',
+   s:'Clean opinion means controls operated as described — not that the description meets our policy threshold.',
+   t:'Identify and document the gap before any access is provisioned, then determine the hold path.',
+   a:'Documented the gap: AES-128 vs AES-256 requirement for PII/financial data. Created a finding in the GRC tool referencing the Security Addendum clause, attached Section II as evidence, rated High severity. Escalated to risk lead with recommendation to hold onboarding — not delay, hold — pending vendor remediation. Vendor updated encryption within 45 days. Re-reviewed evidence, confirmed it met our standard, cleared the hold with documentation.',
+   r:'Always evaluate control strength, not just presence. A clean SOC opinion is not a proxy for meeting your policy.',why:'Signals you understand the difference between auditor scope and organizational requirements — the key senior-level distinction.'},
+  {q:'A Critical vendor has the same vulnerability management exception two consecutive years: high CVEs not patched within the 30-day window. Business says walking away is not realistic.',
+   s:'Repeated exception = systemic failure, not one-time miss. Two cycles means prior remediation failed or was not sustained.',
+   t:'Drive remediation without disrupting the business relationship.',
+   a:'Opened formal remediation record in GRC: the finding, evidence from both SOC reports, 60-day target, specific evidence requirements (30 days of scan reports showing high CVE closure within the window), named owners both sides. Biweekly check-ins with vendor security lead, monthly steering to CISO. Temporarily increased monitoring — weekly SecurityScorecard checks and immediate escalation path for any new high CVE. Vendor closed gap on day 52.',
+   r:'Treat remediation like a project with milestones and evidence requirements — not a follow-up email.',why:'The biweekly cadence and specific evidence requirements signal you have operationally tracked remediations, not just documented them.'},
+  {q:'20 vendors in queue, three Critical. One Critical blocks a contract launching in 10 days. You also just received a breach notification from a High-tier vendor. Next 48 hours?',
+   s:'Competing priorities — tier, urgency, and business impact simultaneously.',
+   t:'Triage by risk type and time sensitivity without letting anything fall through.',
+   a:'First 2 hours: acknowledge breach notification, pull contract to confirm SLA and data at risk, escalate to legal and risk lead. If PHI involved, HIPAA OCR clock starts at discovery — cannot defer. Flag to procurement that 10-day launch is second priority with realistic ETA. Once breach triage handed to CISO and legal, focus on Critical vendor blocking the contract. Remaining queue gets documented reprioritization with ETAs communicated to all stakeholders.',
+   r:'Goal is risk coverage, not queue completion. Tier = depth. Urgency = sequence. Communication = business alignment.',why:'Mentioning the HIPAA clock shows regulatory knowledge. Proactive procurement communication shows business partnership — both senior-level signals.'},
+  {q:'Contract review: the breach notification clause reads "Vendor will notify Customer promptly." No timeframe, no named contacts. Vendor legal says it is standard and will not change it.',
+   s:'"Promptly" is unenforceable. No mechanism to trigger our own incident response or HIPAA reporting clock.',
+   t:'Push back with specific, defensible language while keeping the deal moving.',
+   a:'Documented gap in writing to legal and risk lead. Prepared two positions: primary ask of 24 hours for confirmed incidents, fallback of 48 hours with named security contacts on both sides. Researched vendor breach history using prior SOC and public sources. Escalated to CISO with recommendation not to sign standard language and offered to join the vendor call directly. Landed at 48 hours with named contacts.',
+   r:'Contracts are risk management instruments, not formalities. Every vague clause becomes a problem at the worst possible moment.',why:'Primary and fallback positions with supporting data signals negotiation experience, not just policy knowledge.'},
+  {q:'You inherit a vendor record closed as Low risk. Vendor processes appointment scheduling for healthcare. Data includes patient name, DOB, phone, and specialty type. No BAA is in place.',
+   s:'Appointment data with specialty type can imply a medical condition — potentially PHI. Prior analyst closed as Low without a BAA.',
+   t:'Assess BAA requirement, escalate immediately, and correct the vendor risk posture.',
+   a:'Reviewed data elements: name, DOB, phone, appointment type, specialty. Under HIPAA, appointment data tied to a named individual with specialty type — oncology, psychiatry, cardiology — can reveal a medical condition. That is PHI. Flagged to legal and compliance immediately — BAA is a legal requirement, not optional. Placed temporary hold on new data sharing. Re-tiered vendor to at minimum High. Documented prior misclassification with the specific data elements missed, and recommended a data inventory audit for similar low-tier vendors across the portfolio.',
+   r:'Misclassification is one of the most common TPRM failures. Correcting without blame but with full documentation protects the org and builds program credibility.',why:'The specialty-implies-condition nuance separates someone who has done healthcare TPRM from someone who has read about it.'},
+];
+let behIdx=0;
+function behRender(){
+  const s=behScenarios[behIdx];
+  document.getElementById('beh-label').textContent='Scenario '+(behIdx+1)+' of '+behScenarios.length;
+  document.getElementById('beh-prev').disabled=behIdx===0;
+  document.getElementById('beh-next').textContent=behIdx===behScenarios.length-1?'Complete \u2713':'Next \u2192';
+  document.getElementById('beh-dots').innerHTML=behScenarios.map((x,i)=>`<div class="step-dot ${i<behIdx?'done':i===behIdx?'active':''}" onclick="behGo(${i})"></div>`).join('');
+  const id='beh-'+behIdx;
+  document.getElementById('beh-content').innerHTML=`<div class="scenario-box"><div class="scenario-label">Scenario ${behIdx+1} of ${behScenarios.length}</div><div class="scenario-q">${s.q}</div></div><div class="card"><div class="card-title" style="margin-bottom:12px">Think through your answer — then reveal the model response</div><div class="model-answer" id="${id}"><div class="star-section"><div class="star-lbl">Situation</div><div class="star-body">${s.s}</div></div><div class="star-section" style="margin-top:10px"><div class="star-lbl">Task</div><div class="star-body">${s.t}</div></div><div class="star-section" style="margin-top:10px"><div class="star-lbl">Action</div><div class="star-body">${s.a}</div></div><div class="star-section" style="margin-top:10px"><div class="star-lbl">Result & lesson</div><div class="star-body">${s.r}</div></div><div class="why-box" style="margin-top:12px"><div class="why-label">Why this answer lands</div><div class="why-body">${s.why}</div></div></div><button class="btn" id="beh-btn-${behIdx}" onclick="toggleBeh(${behIdx})" style="margin-top:10px">Reveal model answer</button></div>`;
+}
+function toggleBeh(i){const el=document.getElementById('beh-'+i);const btn=document.getElementById('beh-btn-'+i);const s=el.classList.toggle('show');btn.textContent=s?'Hide answer':'Reveal model answer';}
+function behMove(d){behIdx=Math.max(0,Math.min(behScenarios.length-1,behIdx+d));behRender();}
+function behGo(i){behIdx=i;behRender();}
+behRender();
+
+/* REDLINE */
+const clauses=[
+  {name:'Right to Audit',risk:'medium',vendor:'Customer may request information regarding security controls. CloudPay will provide its most recent SOC 2 report. No additional audit rights are granted.',verdict:'Partially acceptable — push back to add pen test access',accept:'Vendor will provide SOC 2 Type 2 annually. Vendor will provide pen test executive summary annually and on request. Vendor will accommodate a Customer-commissioned security assessment with 30 days prior notice, no more than once per year.',pushback:'Accepting only the SOC 2 means you have no independent verification path. If something goes wrong, "we gave you our SOC" is not a defense. Vendors resistant to any audit rights beyond their own SOC are often resistant because they know what an audit would find.',why:'Audit rights are your contractual safety net. Without them, you depend entirely on the vendor\'s own representation of their controls.'},
+  {name:'Breach Notification',risk:'high',vendor:'In the event of a security incident, CloudPay will notify affected customers in a timely manner consistent with applicable law.',verdict:'Push back — hard. This clause is unacceptable.',accept:'Vendor will notify Customer within 48 hours of discovery of any security incident affecting Customer data, including: incident description, data types affected, and named security contact. Written updates every 24 hours until resolution.',pushback:'"Timely" and "consistent with applicable law" are undefined. A vendor that waits 3 weeks can claim to be timely. Your HIPAA OCR clock starts at discovery — vendor delay directly compresses your compliance window.',why:'This clause directly affects HIPAA compliance. Your 60-day OCR clock runs from discovery, not from when the vendor notifies you.'},
+  {name:'Sub-processor Flow-Down',risk:'high',vendor:'CloudPay may engage sub-processors. CloudPay maintains a list on its website, updated periodically.',verdict:'Push back — prior notice is non-negotiable',accept:'Vendor will provide prior written notice no less than 30 days before engaging any new sub-processor that will process Customer data. Customer retains right to object within 15 days.',pushback:'"Updated periodically" means they can add a sub-processor tomorrow with no notice. Sub-processors are your inherited risk. You cannot manage risk you do not know about.',why:'GDPR Article 28 requires prior notice for sub-processor changes. Resistance to prior notice should raise questions about what the vendor plans to change.'},
+  {name:'Data Return & Destruction',risk:'medium',vendor:'Upon termination, CloudPay will delete Customer data within 90 days. Backup data may be retained for up to 12 months per standard policy.',verdict:'Push back on the backup carve-out',accept:'Upon termination, Vendor will provide certified destruction of all Customer data within 30 days, including all backup and archive copies, and will provide a signed destruction certificate naming data types, destruction method, and date.',pushback:'The backup carve-out means your data lives in their systems for 12 months after termination — 12 months of breach exposure with no active relationship to manage it.',why:'At offboarding you need a signed destruction certificate. Without one, you cannot confirm data is gone in a HIPAA audit or breach investigation.'},
+  {name:'Insurance & Liability Cap',risk:'high',vendor:'CloudPay total liability shall not exceed fees paid in the three months preceding the claim. CloudPay maintains general commercial liability insurance.',verdict:'Push back — most commonly underpowered clause',accept:'Vendor maintains cyber liability insurance of no less than $5M per occurrence and $10M aggregate. Liability cap for breaches involving Customer data shall be no less than 12 months of fees paid. Cap shall not apply to breaches of confidentiality or data security obligations.',pushback:'3 months fees on a $48K/year contract = $12,000 cap. Breach notification, credit monitoring, and fines will far exceed this. General commercial liability does not cover cyber incidents.',why:'This clause matters most when everything else fails. Most procurement teams stop reading before they get to it. Negotiate hard here.'},
+];
+function renderRedline(){document.getElementById('redline-content').innerHTML=clauses.map((c,i)=>`<div class="redline-card"><div class="redline-head"><span class="redline-clause-name">${c.name}</span><span class="badge ${c.risk==='high'?'badge-red':c.risk==='medium'?'badge-amber':'badge-green'}">${c.risk} risk</span></div><div class="redline-body"><div class="redline-sub">Vendor proposed language</div><div class="redline-vendor-lang">"${c.vendor}"</div><div style="font-size:13px;font-weight:600;color:${c.risk==='high'?'var(--red)':'var(--amber)'};margin-bottom:9px">${c.verdict}</div><div class="redline-detail" id="rl-${i}"><div class="redline-sub">Acceptable language</div><div class="redline-accept-text">${c.accept}</div><div class="redline-sub">Why vendor language fails</div><div class="redline-pushback">${c.pushback}</div><div class="redline-why">${c.why}</div></div><button class="btn btn-sm" id="rl-btn-${i}" onclick="toggleRl(${i})" style="margin-top:6px">Show reasoning & fix</button></div></div>`).join('');}
+function toggleRl(i){const el=document.getElementById('rl-'+i);const btn=document.getElementById('rl-btn-'+i);const s=el.classList.toggle('show');btn.textContent=s?'Hide':'Show reasoning & fix';}
+
+/* TIERING SIMULATOR */
+const tierRanges=[
+  {min:1,max:4,tier:'Low',color:'var(--green)',bc:'var(--green-border)',sig:'SIG Lite (~125 Qs)',ofac:'Not required',reasses:'Biennial check-in',monitor:'Self-attestation update',contract:'Standard terms',baa:'Not required unless PHI present'},
+  {min:5,max:9,tier:'Moderate',color:'var(--accent)',bc:'var(--accent-border)',sig:'SIG Lite (~125 Qs)',ofac:'Not required',reasses:'Annual attestation',monitor:'New SOC on issuance',contract:'Security Addendum required',baa:'Required if PHI present'},
+  {min:10,max:16,tier:'High',color:'var(--amber)',bc:'var(--amber-border)',sig:'SIG Core (~800 Qs, 19 domains)',ofac:'Recommended',reasses:'Annual full assessment',monitor:'Annual SOC + cyber ratings',contract:'Security Addendum + DPA required',baa:'Required if PHI present'},
+  {min:17,max:25,tier:'Critical',color:'var(--red)',bc:'var(--red-border)',sig:'SIG Core + supplemental questions',ofac:'Required',reasses:'Annual full + continuous monitoring',monitor:'Continuous BitSight/SecurityScorecard',contract:'Security Addendum + DPA + BAA',baa:'Required — non-negotiable'},
+];
+function simCalc(){
+  const ds=parseInt(document.getElementById('sim-ds').value);
+  const bc=parseInt(document.getElementById('sim-bc').value);
+  const score=ds*bc;
+  const tier=tierRanges.find(t=>score>=t.min&&score<=t.max)||tierRanges[tierRanges.length-1];
+  document.getElementById('sim-result').innerHTML=`<div class="sim-result-box" style="border-color:${tier.bc};text-align:center"><div class="sim-tier-label">Inherent Risk Score</div><div style="font-family:'DM Mono',monospace;font-size:28px;color:${tier.color};margin-bottom:4px">${score} / 25</div><div class="sim-tier-label" style="margin-top:10px">Tier</div><div class="sim-tier-value" style="color:${tier.color}">${tier.tier}</div><div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text3)">Data Sensitivity ${ds} × Business Criticality ${bc}</div></div><div class="sim-requirements"><div class="sim-req-item"><div class="sim-req-label">Questionnaire</div><div class="sim-req-val">${tier.sig}</div></div><div class="sim-req-item"><div class="sim-req-label">OFAC Screening</div><div class="sim-req-val">${tier.ofac}</div></div><div class="sim-req-item"><div class="sim-req-label">Reassessment</div><div class="sim-req-val">${tier.reasses}</div></div><div class="sim-req-item"><div class="sim-req-label">Monitoring</div><div class="sim-req-val">${tier.monitor}</div></div><div class="sim-req-item" style="grid-column:span 2"><div class="sim-req-label">Contract requirements</div><div class="sim-req-val">${tier.contract}</div></div><div class="sim-req-item" style="grid-column:span 2"><div class="sim-req-label">BAA</div><div class="sim-req-val">${tier.baa}</div></div></div>`;
+}
+simCalc();
+
+/* FRAMEWORKS */
+const fwData={
+  nist:`<div class="card card-info" style="margin-bottom:14px"><div class="card-title" style="color:var(--accent)">NIST Cybersecurity Framework (CSF)</div><div class="card-body" style="color:rgba(79,156,249,.85)">5 core functions used to map SIG findings and SOC 2 exceptions into a structured, auditable risk record. In interviews: knowing the 5 functions plus 2–3 example controls per function is sufficient to demonstrate fluency.</div></div>${[{id:'ID',name:'Identify',col:'var(--purple)',desc:'Understand assets, risks, and governance. Includes ID.SC — Supply Chain Risk Management, the NIST anchor for TPRM.',ctrls:['Asset inventory (ID.AM)','Risk assessment process (ID.RA)','Supply chain risk management (ID.SC) — TPRM anchor']},{id:'PR',name:'Protect',col:'var(--accent)',desc:'Implement safeguards to limit impact of cybersecurity events.',ctrls:['Access control / least privilege / MFA (PR.AC)','Data security — encryption at rest and in transit (PR.DS)','Protective technology — firewalls, endpoint (PR.PT)']},{id:'DE',name:'Detect',col:'var(--amber)',desc:'Identify cybersecurity events in a timely manner.',ctrls:['Security continuous monitoring (DE.CM)','Anomalies and events — SIEM (DE.AE)','Detection processes (DE.DP)']},{id:'RS',name:'Respond',col:'var(--red)',desc:'Take action regarding a detected incident.',ctrls:['Response planning — IR plan (RS.RP)','Communications — breach notification (RS.CO)','Mitigation — containment and eradication (RS.MI)']},{id:'RC',name:'Recover',col:'var(--green)',desc:'Restore capabilities after an incident.',ctrls:['Recovery planning — BC/DR, RTO/RPO (RC.RP)','Improvements — post-incident lessons learned (RC.IM)','Communications — coordinating restoration (RC.CO)']}].map(f=>`<div class="fw-domain"><div class="fw-domain-head" onclick="toggleFw(this)"><span class="badge" style="background:rgba(0,0,0,.3);color:${f.col};border:1px solid ${f.col};font-family:'DM Mono',monospace">${f.id}</span><span class="fw-domain-name">${f.name}</span><span style="margin-left:auto;color:var(--text3);font-size:11px">&#x25BC;</span></div><div class="fw-domain-body"><div style="font-size:13px;color:var(--text2);margin-bottom:9px;line-height:1.65">${f.desc}</div><div class="fw-controls">${f.ctrls.map(c=>`<div class="fw-ctrl">${c}</div>`).join('')}</div></div></div>`).join('')}`,
+  iso:`<div class="card card-info" style="margin-bottom:14px"><div class="card-title" style="color:var(--accent)">ISO 27001 — Information Security Management</div><div class="card-body" style="color:rgba(79,156,249,.85)">Annex A contains 93 controls across 4 themes. In TPRM, map vendor findings to ISO 27001 controls for a structured risk record. Certification requires third-party audit — always check what systems are in scope when reviewing a vendor cert.</div></div>${[{name:'Organizational controls (A.5)',count:'37',desc:'Policies, risk management, asset management, supplier relationships, incident management, business continuity.',tprm:'A.5.19–23 (Supplier relationships) are directly relevant to TPRM — cover information security in supplier agreements and supply chain management.'},{name:'People controls (A.6)',count:'8',desc:'Background verification, employment terms, security awareness, disciplinary process.',tprm:'A.6.1 (Background verification) relevant when vendors place personnel in your environment.'},{name:'Physical controls (A.7)',count:'14',desc:'Physical security perimeters, entry controls, equipment security, clear desk.',tprm:'Relevant for vendors with physical access. Often carved out in cloud vendor SOC 2s — must review cloud provider separately.'},{name:'Technological controls (A.8)',count:'34',desc:'Access management, encryption, logging, monitoring, vulnerability management, secure development.',tprm:'A.8.24 (Encryption), A.8.5 (Secure authentication), A.8.8 (Vulnerability management), A.8.15–16 (Logging/monitoring) are most commonly tested in TPRM assessments and SIG Core.'}].map(f=>`<div class="fw-domain"><div class="fw-domain-head" onclick="toggleFw(this)"><span class="fw-domain-name">${f.name}</span><span class="badge badge-purple" style="margin-left:auto">${f.count} controls</span></div><div class="fw-domain-body"><div style="font-size:13px;color:var(--text2);margin-bottom:9px;line-height:1.65">${f.desc}</div><div class="interview-tip"><div class="tip-label">TPRM relevance</div><div class="tip-body">${f.tprm}</div></div></div></div>`).join('')}`,
+  hitrust:`<div class="card card-info" style="margin-bottom:14px"><div class="card-title" style="color:var(--accent)">HITRUST CSF</div><div class="card-body" style="color:rgba(79,156,249,.85)">Healthcare-focused certifiable framework. Inherits domains from NIST CSF and ISO 27001, adds HIPAA-specific requirements. The MyCSF tool is used for assessment at three implementation levels: e1 (basic), i1 (moderate), r2 (full).</div></div><div class="card" style="margin-bottom:10px"><div class="card-title">Relationship to SOC 2 and ISO 27001</div><div class="card-body">A vendor with SOC 2 and ISO 27001 has significant overlap with HITRUST. HITRUST adds HIPAA-specific controls layered on top. The 19 control domains span all NIST CSF and ISO 27001 categories.</div></div><div class="card" style="margin-bottom:10px"><div class="card-title">19 HITRUST control domains</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:9px">${['01 — Information Protection Program','02 — Endpoint Protection','03 — Portable Media Security','04 — Mobile Device Security','05 — Wireless Protection','06 — Configuration Management','07 — Vulnerability Management','08 — Network Protection','09 — Password Management','10 — Access Control','11 — Audit Logging & Monitoring','12 — Education & Training','13 — Third-Party Assurance','14 — Incident Management','15 — Business Continuity & DR','16 — Risk Management','17 — Physical & Environmental Security','18 — Data Protection & Privacy','19 — Transmission Protection'].map(d=>`<div class="fw-ctrl" style="font-size:11px">${d}</div>`).join('')}</div></div><div class="card card-warning"><div class="card-title" style="color:var(--amber)">Interview answer for HITRUST</div><div class="card-body" style="color:var(--amber);font-size:13px">"I have mapped SOC 2 and ISO 27001 controls and understand the domain overlap. HITRUST adds HIPAA-specific layering via the MyCSF model and operates at three implementation levels. I would ramp quickly given the control framework overlap — the HIPAA regulatory context is already familiar to me."</div></div>`,
+  mapping:`<div class="card card-info" style="margin-bottom:14px"><div class="card-title" style="color:var(--accent)">Framework cross-mapping reference</div><div class="card-body" style="color:rgba(79,156,249,.85)">When a finding appears in a vendor SIG or SOC 2, use this table to map it across frameworks for a structured, defensible risk record.</div></div><table class="cs-table"><thead><tr><th>Control Area</th><th>NIST CSF</th><th>ISO 27001</th><th>HITRUST</th></tr></thead><tbody>${[['Encryption at rest','PR.DS-1','A.8.24','19 — Transmission Protection'],['Encryption in transit','PR.DS-2','A.8.24','19 — Transmission Protection'],['Access control / MFA','PR.AC-1, PR.AC-7','A.8.5, A.8.3','10 — Access Control'],['Vulnerability management','DE.CM-8','A.8.8','07 — Vulnerability Management'],['Incident response','RS.RP-1','A.5.26–27','14 — Incident Management'],['Vendor / supply chain','ID.SC-1–4','A.5.19–23','13 — Third-Party Assurance'],['Logging & monitoring','DE.CM-1','A.8.15–16','11 — Audit Logging & Monitoring'],['Business continuity','RC.RP-1','A.5.29–30','15 — Business Continuity & DR'],['Risk management','ID.RA-1','A.5.3','16 — Risk Management'],['Awareness & training','PR.AT-1','A.6.3','12 — Education & Training']].map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`,
+};
+function fwSwitch(id,btn){document.querySelectorAll('.fw-tab').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('fw-content').innerHTML=fwData[id]||'';}
+function toggleFw(head){head.nextElementSibling.classList.toggle('open');}
+fwSwitch('nist',document.querySelector('.fw-tab'));
+
+/* VENDOR SCORECARD */
+const scVendors=[
+  {name:'CloudPay Solutions',type:'Payroll Processing',tier:'Critical',score:62,bitsight:680,soc:'Unqualified (2024)',
+   domains:[{n:'Access Control',s:55,c:'var(--amber)'},{n:'Encryption',s:40,c:'var(--red)'},{n:'Vulnerability Mgmt',s:72,c:'var(--amber)'},{n:'Incident Response',s:80,c:'var(--green)'},{n:'Business Continuity',s:58,c:'var(--amber)'},{n:'Logging & Monitoring',s:78,c:'var(--green)'}],
+   findings:[{sev:'High',cls:'badge-red',t:'AES-128 encryption at rest for SSN and bank data. Policy requires AES-256. Hold onboarding pending remediation.'},{sev:'High',cls:'badge-red',t:'CC6.1b access control exception repeated from prior year. Terminated employee access not revoked within policy. Formal remediation required.'},{sev:'Medium',cls:'badge-amber',t:'99.6% availability vs 99.9% SLA — 26 hours unplanned downtime Q2. Assess against your RTO requirements.'},{sev:'Low',cls:'badge-gray',t:'AWS physical infrastructure carved out of SOC scope. Obtain and review AWS SOC 2 independently.'}],
+   rec:'HOLD onboarding. High findings require remediation before access is provisioned. Escalate AES-128 gap to risk lead.'},
+  {name:'DataVault Analytics',type:'Business Intelligence / Data Warehouse',tier:'High',score:81,bitsight:740,soc:'Unqualified (2024)',
+   domains:[{n:'Access Control',s:88,c:'var(--green)'},{n:'Encryption',s:92,c:'var(--green)'},{n:'Vulnerability Mgmt',s:75,c:'var(--amber)'},{n:'Incident Response',s:85,c:'var(--green)'},{n:'Business Continuity',s:70,c:'var(--amber)'},{n:'Logging & Monitoring',s:82,c:'var(--green)'}],
+   findings:[{sev:'Medium',cls:'badge-amber',t:'Medium CVE patching runs 45 days vs 30-day policy. No high-severity open CVEs at time of assessment.'},{sev:'Medium',cls:'badge-amber',t:'BC/DR last tested 18 months ago vs annual requirement. Request current test results before finalizing.'},{sev:'Low',cls:'badge-gray',t:'Two new sub-processors added since last review — confirm prior notice was provided per contract terms.'}],
+   rec:'Proceed with onboarding. Document medium findings with 60-day remediation targets and named owners. No hold required.'},
+  {name:'MediSchedule Pro',type:'Appointment Scheduling (Healthcare)',tier:'High',score:48,bitsight:590,soc:'Qualified (2024)',
+   domains:[{n:'Access Control',s:45,c:'var(--red)'},{n:'Encryption',s:62,c:'var(--amber)'},{n:'Vulnerability Mgmt',s:38,c:'var(--red)'},{n:'Incident Response',s:55,c:'var(--amber)'},{n:'Business Continuity',s:42,c:'var(--red)'},{n:'Logging & Monitoring',s:48,c:'var(--red)'}],
+   findings:[{sev:'Critical',cls:'badge-red',t:'QUALIFIED SOC 2 opinion. Multiple material exceptions. Do not proceed without CISO sign-off and formal risk acceptance.'},{sev:'Critical',cls:'badge-red',t:'No BAA in place. Vendor processes appointment data including specialty type — potentially PHI. BAA required before any data sharing.'},{sev:'High',cls:'badge-red',t:'Vulnerability management exception repeated from prior year — high CVEs not patched within 30-day window. Formal remediation plan required.'},{sev:'High',cls:'badge-red',t:'BitSight score 590 — significant drop from 680 at last review. External security posture has deteriorated. Immediate investigation required.'}],
+   rec:'HOLD. Multiple critical findings. Escalate to CISO. Do not proceed without formal risk acceptance, BAA execution, and a vendor remediation plan with milestones.'},
+];
+function scRender(idx){
+  document.getElementById('sc-vendor-btns').innerHTML=scVendors.map((v,i)=>`<button class="sc-vendor-btn ${i===idx?'active':''}" onclick="scRender(${i})">${v.name}</button>`).join('');
+  const v=scVendors[idx];
+  const sc=v.score>=75?'var(--green)':v.score>=60?'var(--amber)':'var(--red)';
+  document.getElementById('sc-content').innerHTML=`<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap"><div><div style="font-family:'DM Serif Display',serif;font-size:19px;color:var(--text)">${v.name}</div><div style="font-size:12px;color:var(--text3)">${v.type}</div></div><div style="margin-left:auto;display:flex;gap:7px;flex-wrap:wrap"><span class="badge ${v.tier==='Critical'?'badge-red':v.tier==='High'?'badge-amber':'badge-blue'}">${v.tier}</span><span class="badge ${v.soc.includes('Qualified')&&!v.soc.includes('Un')?'badge-red':'badge-green'}">${v.soc}</span></div></div><div class="sc-grid"><div class="sc-metric"><div class="sc-metric-val" style="color:${sc}">${v.score}</div><div class="sc-metric-label">Overall Score / 100</div></div><div class="sc-metric"><div class="sc-metric-val" style="color:${v.bitsight>=700?'var(--green)':v.bitsight>=600?'var(--amber)':'var(--red)'}">${v.bitsight}</div><div class="sc-metric-label">BitSight Score</div></div><div class="sc-metric"><div class="sc-metric-val" style="font-size:18px;color:var(--text2)">${v.tier}</div><div class="sc-metric-label">Risk Tier</div></div></div><p class="section-label" style="margin-top:4px">Domain scores</p><div class="card" style="margin-bottom:12px">${v.domains.map(d=>`<div class="sc-domain-row"><span class="sc-domain-name">${d.n}</span><div class="sc-bar-wrap"><div class="sc-bar" style="width:${d.s}%;background:${d.c}"></div></div><span class="sc-score">${d.s}</span></div>`).join('')}</div><p class="section-label">Key findings</p>${v.findings.map(f=>`<div class="sc-finding"><span class="badge ${f.cls}" style="margin-bottom:5px">${f.sev}</span><div style="font-size:13px;color:var(--text2);margin-top:4px;line-height:1.55">${f.t}</div></div>`).join('')}<div style="margin-top:12px;padding:13px 17px;background:var(--surface2);border-radius:var(--radius-lg);border:1px solid var(--border2)"><div class="section-label">Recommendation</div><div style="font-size:13px;color:var(--text);line-height:1.65;font-weight:500">${v.rec}</div></div>`;
+}
+
+/* CHEAT SHEET */
+function renderCheatsheet(){
+  document.getElementById('cs-content').innerHTML=`<div class="cs-section"><div class="cs-section-title">Core Formulas</div><div class="cs-formula"><div class="cs-formula-label">Inherent Risk</div>Data Sensitivity × Business Criticality</div><div class="cs-formula"><div class="cs-formula-label">Residual Risk</div>Inherent Risk − Control Effectiveness</div><div class="cs-formula"><div class="cs-formula-label">Tier Ranges (1–5 × 1–5 scale)</div>1–4 = Low &nbsp;|&nbsp; 5–9 = Moderate &nbsp;|&nbsp; 10–16 = High &nbsp;|&nbsp; 17–25 = Critical</div></div><div class="cs-section"><div class="cs-section-title">Tier Comparison</div><table class="cs-table"><thead><tr><th>Tier</th><th>Score</th><th>SIG</th><th>Reassessment</th><th>OFAC</th><th>Monitoring</th></tr></thead><tbody><tr><td><span class="badge badge-red">Critical</span></td><td>17–25</td><td>SIG Core + supplemental</td><td>Annual full + continuous</td><td>Required</td><td>Continuous cyber ratings</td></tr><tr><td><span class="badge badge-amber">High</span></td><td>10–16</td><td>SIG Core (~800 Qs)</td><td>Annual full</td><td>Recommended</td><td>Annual SOC + cyber ratings</td></tr><tr><td><span class="badge badge-blue">Moderate</span></td><td>5–9</td><td>SIG Lite (~125 Qs)</td><td>Annual attestation</td><td>Not required</td><td>New SOC on issuance</td></tr><tr><td><span class="badge badge-green">Low</span></td><td>1–4</td><td>SIG Lite or self-attest</td><td>Biennial</td><td>Not required</td><td>Self-attestation update</td></tr></tbody></table></div><div class="cs-section"><div class="cs-section-title">SOC 2 Opinion Types</div><table class="cs-table"><thead><tr><th>Opinion</th><th>Meaning</th><th>Action</th></tr></thead><tbody><tr><td><span class="badge badge-green">Unqualified</span></td><td>Clean — controls operating effectively</td><td>Proceed — still read Sections II and IV</td></tr><tr><td><span class="badge badge-amber">Qualified</span></td><td>Material exceptions — controls failed or not tested</td><td>Escalate — require CISO sign-off before proceeding</td></tr><tr><td><span class="badge badge-red">Adverse</span></td><td>System fails trust service criteria</td><td>Escalate — strongly consider walking away</td></tr><tr><td><span class="badge badge-red">Disclaimer</span></td><td>Auditor could not conclude — scope limitations</td><td>Treat like adverse — escalate immediately</td></tr></tbody></table></div><div class="cs-section"><div class="cs-section-title">SOC 2 Red Flags</div><div class="cs-pill-row"><span class="badge badge-red">Qualified / Adverse / Disclaimer</span><span class="badge badge-amber">Report &gt;12 months, no bridge letter</span><span class="badge badge-amber">Same exception two cycles</span><span class="badge badge-amber">Critical sub-processors carved out</span><span class="badge badge-amber">Period under 6 months</span><span class="badge badge-amber">No CUECs listed</span><span class="badge badge-gray">AES-128 instead of AES-256</span><span class="badge badge-gray">TLS 1.0 or 1.1</span></div></div><div class="cs-section"><div class="cs-section-title">Contract Clauses — Acceptable vs. Push Back</div><table class="cs-table"><thead><tr><th>Clause</th><th>Acceptable</th><th>Push Back When</th></tr></thead><tbody><tr><td>Right to Audit</td><td>SOC 2 annually + pen test on request</td><td>Vendor says "trust our SOC only"</td></tr><tr><td>Breach Notification</td><td>24–72 hours with named contacts</td><td>"Promptly" with no defined timeframe</td></tr><tr><td>Sub-processor Flow-Down</td><td>30 days prior written notice</td><td>Vendor adds subs with no notice</td></tr><tr><td>Data Return / Destruction</td><td>Certified destruction 30–60 days, all copies</td><td>Retains data "for backup purposes"</td></tr><tr><td>Insurance / Liability</td><td>$5–10M cyber, 12-month fee cap, breach carve-out</td><td>3-month cap, general liability only</td></tr></tbody></table></div><div class="cs-section"><div class="cs-section-title">HIPAA — 3 Rules</div><div class="cs-two-col"><div class="card"><div class="card-title">Privacy Rule</div><div class="card-body">Who can access and share PHI. Governs permitted uses and disclosures by covered entities and business associates.</div></div><div class="card"><div class="card-title">Security Rule</div><div class="card-body">How ePHI is protected. Administrative, physical, and technical safeguards. Encryption is a technical safeguard — AES-256 at rest, TLS 1.2+.</div></div></div><div class="card"><div class="card-title">Breach Notification Rule</div><div class="card-body">Notify affected individuals and OCR within 60 days of discovery. Vendor 24–72 hour contract clause feeds directly into this clock.</div></div></div><div class="cs-section"><div class="cs-section-title">Key Timelines</div><table class="cs-table"><thead><tr><th>Event</th><th>Timeline</th><th>Source</th></tr></thead><tbody><tr><td>Vendor breach notification to you</td><td>24–72 hours from discovery</td><td>Contract SLA</td></tr><tr><td>HIPAA OCR notification</td><td>60 days from discovery</td><td>HIPAA Breach Notification Rule</td></tr><tr><td>GDPR regulator notification</td><td>72 hours from discovery</td><td>GDPR Article 33</td></tr><tr><td>Data destruction after offboarding</td><td>30–60 days, all copies</td><td>Contract / Security Addendum</td></tr><tr><td>Evidence retention after offboarding</td><td>3+ years</td><td>Policy / compliance requirement</td></tr><tr><td>Bridge letter trigger</td><td>SOC 2 &gt;12 months old</td><td>TPRM best practice</td></tr><tr><td>High CVE patch window</td><td>30 days</td><td>Common policy standard</td></tr><tr><td>Critical CVE patch window</td><td>15 days</td><td>Common policy standard</td></tr></tbody></table></div><div class="cs-section"><div class="cs-section-title">Three Risk Types</div><div class="cs-two-col"><div class="card card-danger"><div class="card-title" style="color:var(--red)">Inherent Risk</div><div class="card-body" style="color:rgba(240,82,82,.8)">Risk BEFORE controls. Baseline: Data Sensitivity × Business Criticality.</div></div><div class="card card-warning"><div class="card-title" style="color:var(--amber)">Residual Risk</div><div class="card-body" style="color:var(--amber)">Risk AFTER controls. Inherent minus control effectiveness. What you accept, remediate, or transfer.</div></div></div><div class="card card-info"><div class="card-title" style="color:var(--accent)">Inherited Risk</div><div class="card-body" style="color:rgba(79,156,249,.85)">Risk taken on through vendor sub-processors and fourth parties. Even well-controlled vendors can expose you through weak fourth parties.</div></div></div><div class="cs-section"><div class="cs-section-title">Encryption Standards</div><table class="cs-table"><thead><tr><th>Use Case</th><th>Standard</th><th>Red Flag</th></tr></thead><tbody><tr><td>Sensitive PII / PHI / financial at rest</td><td>AES-256</td><td>AES-128 or weaker</td></tr><tr><td>Data in transit</td><td>TLS 1.2 minimum, TLS 1.3 preferred</td><td>TLS 1.0 or TLS 1.1</td></tr><tr><td>Key management</td><td>Separate system, regular rotation schedule</td><td>Keys stored with data, no rotation</td></tr></tbody></table></div><div class="cs-section"><div class="cs-section-title">GRC Tools Reference</div><table class="cs-table"><thead><tr><th>Tool</th><th>Primary Use</th><th>Interview framing</th></tr></thead><tbody><tr><td>ServiceNow GRC</td><td>Workflow, remediation tracking, risk records</td><td rowspan="5" style="vertical-align:middle;color:var(--text2);font-style:italic">"The tool is a front end. The process — intake, tiering, assessment, evidence, remediation — is what matters. I ramp on new platforms in a sprint or two."</td></tr><tr><td>RSA Archer</td><td>Enterprise GRC, risk register, policy management</td></tr><tr><td>OneTrust</td><td>Privacy + vendor risk, DPA/DPIA workflows</td></tr><tr><td>LogicGate</td><td>Flexible workflow-based GRC</td></tr><tr><td>BitSight / SecurityScorecard</td><td>Continuous cyber ratings, breach signals</td></tr></tbody></table></div>`;
+}
+
+/* GLOSSARY */
+const glossTerms=[
+  {term:'AES-256',def:'Advanced Encryption Standard with a 256-bit key. The industry benchmark for encrypting sensitive data at rest. Required for PHI, PII, and financial data in most enterprise security policies.',ctx:'A clean SOC 2 with AES-128 on SSN data is still a gap against your policy. Always check encryption strength in Section II — not just the opinion.',tags:['risk','soc2']},
+  {term:'API Key',def:'An authentication credential granting programmatic access to a system. API keys do not expire automatically and are among the most commonly missed access types at vendor offboarding.',ctx:'API keys must be explicitly revoked at offboarding. They are not tied to standard user account lifecycle management and persist silently after a vendor relationship ends.',tags:['lifecycle']},
+  {term:'Adverse Opinion',def:'A SOC 2 audit opinion indicating the vendor\'s system fails the applicable Trust Services Criteria. Represents systemic control failure.',ctx:'Rare but decisive. Means the auditor found pervasive, material failures — not isolated exceptions.',tags:['soc2']},
+  {term:'BAA',def:'Business Associate Agreement. Required under HIPAA whenever a vendor creates, receives, maintains, or transmits PHI on behalf of a covered entity. Non-negotiable in healthcare.',ctx:'If a vendor touches PHI and there is no BAA, you have a HIPAA compliance gap regardless of their SOC 2 quality. The BAA is a legal requirement.',tags:['contract','hipaa']},
+  {term:'BC/DR Plan',def:'Business Continuity and Disaster Recovery Plan. Documents how a vendor maintains or restores operations after a disruption. Key metrics: RTO (recovery time) and RPO (data loss tolerance).',ctx:'Validate that vendor RTO/RPO aligns with your requirements. If your org cannot survive a 48-hour outage but vendor RTO is 72 hours — that is a critical gap.',tags:['lifecycle']},
+  {term:'BitSight',def:'Continuous vendor cyber risk rating platform scoring organizations 250–900 based on externally observable security signals: open vulnerabilities, botnet activity, exposed services.',ctx:'A 50+ point drop between annual reviews signals a real change in security posture — not noise. Set automated alerts for significant drops.',tags:['lifecycle']},
+  {term:'Bridge Letter',def:'A management assertion letter covering the gap between a SOC 2 report period end date and the present. Requested when a SOC 2 is more than 12 months old. Not an audit — management\'s statement that no material control changes occurred.',ctx:'If the SOC period ended 14 months ago with no bridge letter, you are conducting due diligence with stale evidence.',tags:['soc2']},
+  {term:'Business Criticality',def:'One of two inputs to inherent risk scoring. Measures operational impact if the vendor fails, goes down, or exits the relationship. Scored 1–5.',ctx:'A payroll processor scores maximum criticality. An office supply vendor scores minimum. The interaction with data sensitivity determines tier.',tags:['risk','lifecycle']},
+  {term:'CCPA',def:'California Consumer Privacy Act. Gives California residents rights over their personal data. Triggers a DPA requirement when a vendor processes California resident data.',ctx:'Triggers alongside GDPR when personal data of California residents is processed. Required before data sharing begins.',tags:['contract']},
+  {term:'Compensating Control',def:'A security control implemented by your organization to reduce residual risk when a vendor control is absent or insufficient. Documents a mitigation — does not eliminate the gap.',ctx:'Document compensating controls with owner and review date. They reduce residual risk without eliminating the finding.',tags:['risk']},
+  {term:'Control Effectiveness',def:'How well a vendor\'s implemented controls actually reduce risk. The gap between inherent and residual risk.',ctx:'Residual Risk = Inherent Risk − Control Effectiveness. Strong controls on sensitive data can produce low residual risk despite high inherent risk.',tags:['risk']},
+  {term:'CUECs',def:'Complementary User Entity Controls. Controls listed in a vendor\'s SOC 2 that the auditor assumes your organization is operating. If you do not run them, the SOC opinion does not extend to your environment.',ctx:'Most commonly missed in SOC 2 review. Pull every CUEC into a tracker with named owners before closing an assessment.',tags:['soc2','lifecycle']},
+  {term:'CVE',def:'Common Vulnerabilities and Exposures. Standardized identifier for publicly known cybersecurity vulnerabilities. CVSS severity: Critical (9.0–10), High (7.0–8.9), Medium (4.0–6.9), Low (0.1–3.9).',ctx:'Track whether vendors patch high/critical CVEs within your required window — commonly 30 days for High, 15 for Critical. Failure to patch = a finding.',tags:['risk']},
+  {term:'Data Sensitivity',def:'One of two inputs to inherent risk scoring. Measures the type and regulated nature of data a vendor accesses or processes. PHI, SSNs, financial data score highest.',ctx:'SSNs and bank accounts score higher than employee names and emails. Scoring should reflect your data classification policy.',tags:['risk','lifecycle']},
+  {term:'Disclaimer Opinion',def:'A SOC 2 audit opinion where the auditor was unable to reach a conclusion, typically due to scope limitations. Treat like an adverse opinion — escalate before proceeding.',ctx:'If the vendor restricted scope, that refusal is itself a red flag about transparency.',tags:['soc2']},
+  {term:'DPA',def:'Data Processing Agreement. Required under GDPR and relevant under CCPA when a vendor processes personal data on your behalf. Covers processing purposes, legal basis, data subject rights, sub-processor controls.',ctx:'Required for any vendor receiving personal data of EU or California residents. Must be executed before data sharing begins.',tags:['contract']},
+  {term:'ePHI',def:'Electronic Protected Health Information. PHI created, stored, transmitted, or received electronically. Subject to HIPAA Security Rule safeguard requirements.',ctx:'Encryption of ePHI is a technical safeguard under HIPAA — AES-256 at rest, TLS 1.2+ in transit are standard requirements.',tags:['hipaa','risk']},
+  {term:'Federated SSO',def:'Single Sign-On authentication federated across organizational boundaries using your identity provider. Access persists independently of standard user account lifecycle management.',ctx:'Among the most commonly missed access types at offboarding. SSO sessions must be explicitly revoked at the identity provider level.',tags:['lifecycle']},
+  {term:'Fourth Party',def:'A vendor\'s vendor. An entity providing services to your vendor with indirect access to or impact on your data. The primary source of inherited risk.',ctx:'A vendor with excellent controls but a weak cloud sub-processor still exposes you. Review sub-processor lists and ask about their vendor management program.',tags:['risk','lifecycle']},
+  {term:'GDPR',def:'General Data Protection Regulation. EU law governing collection, processing, and transfer of personal data of EU residents. Requires DPA, 72-hour breach notification to regulators, and lawful basis for processing.',ctx:'Any vendor processing EU resident data triggers GDPR obligations. Sub-processor additions require prior written notice.',tags:['contract']},
+  {term:'GRC',def:'Governance, Risk, and Compliance. Integrated framework and toolset for managing organizational risk. Common TPRM platforms: ServiceNow GRC, RSA Archer, OneTrust, LogicGate, AuditBoard.',ctx:'"The tool is a front end. The process — intake, tiering, assessment, evidence, remediation — is what matters. I ramp on new platforms in a sprint or two."',tags:['lifecycle','tools']},
+  {term:'HIPAA',def:'Health Insurance Portability and Accountability Act. Three rules: Privacy (who can access PHI), Security (how ePHI is protected), Breach Notification (when and how to report).',ctx:'Triggers BAA requirements, specific encryption standards, and a 60-day OCR notification window from breach discovery.',tags:['hipaa']},
+  {term:'HITRUST',def:'Health Information Trust Alliance Common Security Framework. Certifiable healthcare-focused framework. Inherits from NIST CSF and ISO 27001, adds HIPAA-specific requirements. Uses the MyCSF assessment tool.',ctx:'"I have mapped SOC 2 and ISO 27001 controls and understand the domain overlap. HITRUST adds HIPAA-specific layering via MyCSF. I would ramp quickly."',tags:['risk','hipaa']},
+  {term:'Inherent Risk',def:'Risk present before any controls are applied. Calculated as: Data Sensitivity × Business Criticality. The baseline from which all assessment and monitoring flows.',ctx:'Inherent risk does not change based on vendor controls — it reflects the raw exposure. Controls reduce it to residual risk.',tags:['risk','lifecycle']},
+  {term:'Inherited Risk',def:'Risk your organization takes on through a vendor\'s sub-processors, fourth parties, and supply chain. Even well-controlled vendors can expose you through weak fourth parties.',ctx:'Review sub-processor lists at due diligence and ask about the vendor\'s own vendor management program.',tags:['risk']},
+  {term:'ISO 27001',def:'International standard for information security management systems. Annex A contains 93 controls across 4 themes: Organizational, People, Physical, Technological.',ctx:'Used as a control mapping framework in TPRM. Certification requires third-party audit — check what systems are in scope.',tags:['risk','soc2']},
+  {term:'Key Management',def:'Policies and systems for generating, distributing, storing, rotating, and destroying cryptographic keys. As important as the encryption algorithm itself.',ctx:'AES-256 with poor key management is not equivalent to AES-256 with strong key management. Check both in SOC 2 Section II.',tags:['risk','soc2']},
+  {term:'Least Privilege',def:'Principle that a user or system should be granted only the minimum access required to perform their function.',ctx:'Document what access was provisioned, who approved it, and when — this documentation becomes the offboarding revocation checklist.',tags:['lifecycle']},
+  {term:'Liability Cap',def:'Contractual limit on maximum financial damages a vendor is required to pay in a breach or failure. Commonly expressed as a multiple of fees paid.',ctx:'3-month fee cap on a $48K/year contract = $12K cap. Breach costs far exceed this. Push for 12-month caps with breach carve-outs.',tags:['contract']},
+  {term:'Material Gap',def:'A control deficiency significant enough to represent substantial risk. In SOC 2: an exception appearing in two consecutive audit periods, or a single high-severity exception with no remediation.',ctx:'Same exception two cycles = material gap. Requires formal remediation plan with named owner, milestones, evidence requirements, and biweekly tracking.',tags:['soc2','risk']},
+  {term:'MFA',def:'Multi-Factor Authentication. Authentication requiring two or more verification factors. One of the most common CUECs in SOC 2 reports.',ctx:'CUEC: "User entity is responsible for enforcing MFA for all administrator-level accounts." Validate this is operating before closing that CUEC.',tags:['risk','soc2']},
+  {term:'NIST CSF',def:'National Institute of Standards and Technology Cybersecurity Framework. Five functions: Identify, Protect, Detect, Respond, Recover. Used to map findings in TPRM risk assessments.',ctx:'Map SIG findings and SOC 2 exceptions to NIST CSF functions to create a structured, auditable risk record.',tags:['risk']},
+  {term:'OCR',def:'Office for Civil Rights. The HHS division enforcing HIPAA. Must be notified within 60 days of a breach discovery affecting 500+ individuals.',ctx:'Your 60-day clock starts at discovery — including when you reasonably should have known. Vendor notification delays directly compress your window.',tags:['hipaa']},
+  {term:'OFAC',def:'Office of Foreign Assets Control. U.S. Treasury agency administering economic and trade sanctions. OFAC screening required for Critical-tier vendors.',ctx:'A newly sanctioned vendor must be escalated immediately — not at the next scheduled review cycle.',tags:['lifecycle']},
+  {term:'Pen Test',def:'Penetration Test. Simulated cyberattack authorized by the target to identify exploitable vulnerabilities. Due diligence artifact: executive summary plus finding counts.',ctx:'Review executive summary and note open critical/high findings and remediation timelines.',tags:['lifecycle','soc2']},
+  {term:'PHI',def:'Protected Health Information. Under HIPAA, individually identifiable health information held or transmitted by covered entities or business associates. Includes names, dates, contact info, SSNs, diagnoses, treatment records.',ctx:'Appointment data with specialty type (oncology, psychiatry) can constitute PHI even without a diagnosis code. Always check the actual data fields.',tags:['hipaa','risk']},
+  {term:'PII',def:'Personally Identifiable Information. Data that can identify an individual: names, SSNs, email, dates of birth, financial account numbers, biometric data.',ctx:'PII sensitivity drives inherent risk scoring. SSNs + bank accounts score higher than names + emails.',tags:['risk']},
+  {term:'Qualified Opinion',def:'A SOC 2 audit opinion where the auditor found exceptions material enough to withhold a clean opinion. Controls failed or were not sufficiently tested.',ctx:'Not a minor issue. Document, escalate, and require CISO sign-off before proceeding. Do not normalize this.',tags:['soc2']},
+  {term:'Residual Risk',def:'Risk remaining after vendor controls are applied. Calculated as: Inherent Risk − Control Effectiveness. What your organization accepts, transfers, or remediates.',ctx:'Residual risk acceptance requires a named owner, documented rationale, and a review date — it is a documented decision, not passive inaction.',tags:['risk','lifecycle']},
+  {term:'Right to Audit',def:'Contractual provision giving your organization the right to verify vendor security controls through independent assessment, questionnaires, or on-site review.',ctx:'Acceptable: SOC 2 annually + pen test on request. Push back when vendor says "trust our SOC only."',tags:['contract']},
+  {term:'RPO',def:'Recovery Point Objective. Maximum acceptable data loss measured in time. Example: RPO of 4 hours means restore from backup no older than 4 hours.',ctx:'Compare vendor RPO against your data loss tolerance. If vendor RPO is 48 hours but you cannot afford 24 hours of loss — that is a gap to document.',tags:['lifecycle']},
+  {term:'RTO',def:'Recovery Time Objective. Maximum acceptable downtime before a system must be restored. Example: RTO of 8 hours means service restored within 8 hours of failure.',ctx:'Compare vendor RTO against your business continuity requirements. A biweekly payroll processor with a vendor RTO of 72 hours may fail your threshold.',tags:['lifecycle']},
+  {term:'Security Addendum',def:'A contract attachment specifying security requirements. Covers encryption standards, access controls, logging requirements, IR obligations, and pen testing cadence.',ctx:'Where your policy requirements — AES-256, TLS 1.2+, 24-hour breach notification — become contractually enforceable.',tags:['contract']},
+  {term:'SecurityScorecard',def:'Continuous vendor cyber risk rating platform assigning a letter grade (A–F) across categories including network security, DNS health, and application security.',ctx:'Used alongside BitSight for continuous monitoring. Significant drops between annual reviews trigger early assessment or escalation.',tags:['lifecycle']},
+  {term:'SIG',def:'Standardized Information Gathering questionnaire. Industry-standard vendor risk questionnaire. SIG Lite (~125 questions) for low-tier vendors; SIG Core (~800 questions, 19 domains) for Critical and High-tier vendors.',ctx:'Cross-walk SIG answers against the vendor SOC 2. Discrepancies between SIG claims and auditor findings = red flag.',tags:['lifecycle','soc2']},
+  {term:'SOC 2',def:'System and Organization Controls 2. Audit report issued by an independent CPA firm assessing controls against AICPA Trust Services Criteria. Type 1 = point-in-time design. Type 2 = operating effectiveness over a period.',ctx:'A SOC 2 is an auditor opinion, not a certification. Always read Section II and Section IV — not just the opinion page.',tags:['soc2']},
+  {term:'Sub-processor',def:'A third party that a vendor engages to process your data on their behalf. Each sub-processor is a source of inherited risk.',ctx:'Review the sub-processor list at due diligence. GDPR requires prior notice before adding new sub-processors. Carved-out sub-processors in a SOC 2 must be independently reviewed.',tags:['lifecycle','contract']},
+  {term:'Tiering',def:'Categorizing vendors into risk tiers (Critical, High, Moderate, Low) based on inherent risk score. The tier determines all downstream assessment, contract, and monitoring requirements.',ctx:'Tiering is not just a scoring exercise — it is a communication and resource allocation tool. Every depth and cadence decision is anchored to the tier.',tags:['lifecycle','risk']},
+  {term:'TLS',def:'Transport Layer Security. Cryptographic protocol encrypting data in transit. TLS 1.2 is the minimum acceptable; TLS 1.3 is preferred. TLS 1.0 and 1.1 are deprecated.',ctx:'Look for TLS requirements in the Security Addendum and confirm implementation in SOC 2 Section II. TLS 1.0 or 1.1 = finding requiring escalation.',tags:['risk','soc2']},
+  {term:'TPRM',def:'Third-Party Risk Management. The disciplined process of identifying, assessing, monitoring, and managing risks introduced through external vendor relationships.',ctx:'TPRM is a continuous program, not a checklist. The lifecycle (intake → tiering → due diligence → assessment → contract → monitoring → offboarding) structures the program.',tags:['lifecycle']},
+  {term:'Trust Services Criteria',def:'The AICPA framework for SOC 2 audits. Five categories: Security (required), Availability, Processing Integrity, Confidentiality, Privacy.',ctx:'Note which TSC categories are in scope. A vendor with only Security in scope may not have been tested on Availability controls relevant to your requirements.',tags:['soc2']},
+  {term:'Unqualified Opinion',def:'A SOC 2 audit opinion indicating the auditor found controls suitably designed and operating effectively throughout the audit period. The expected baseline.',ctx:'Necessary but not sufficient. Always read Section II for encryption standards and Section IV for exceptions. Clean opinion ≠ meets your policy.',tags:['soc2']},
+  {term:'Vendor Record',def:'Centralized documentation repository for a vendor relationship. Contains SIG responses, SOC 2 reports, risk assessment findings, contracts, attestations, risk decisions, remediation evidence, and offboarding documentation.',ctx:'Every risk decision must have three things: evidence relied on, control mapped to, and named owner for follow-up.',tags:['lifecycle']},
+  {term:'Vulnerability Management',def:'Ongoing practice of identifying, prioritizing, and remediating security vulnerabilities. Assessed through pen test results, SOC 2 exceptions, and SIG responses.',ctx:'Common SLA: patch Critical CVEs within 15 days, High within 30 days. Same exception two cycles in the SOC = material gap.',tags:['risk']},
+];
+const tagLabels={lifecycle:'Lifecycle',soc2:'SOC 2',contract:'Contract',hipaa:'HIPAA',risk:'Risk',tools:'Tools'};
+const tagClass={lifecycle:'tag-lifecycle',soc2:'tag-soc2',contract:'tag-contract',hipaa:'tag-hipaa',risk:'tag-risk',tools:'tag-tools'};
+let glossInited=false,activeAlpha='ALL',activeCat='ALL';
+function initGlossary(){
+  if(glossInited)return;
+  glossInited=true;
+  document.getElementById('gloss-filters').innerHTML=['ALL','Lifecycle','SOC 2','Contract','HIPAA','Risk','Tools'].map(c=>`<button class="gf-btn ${c==='ALL'?'active':''}" onclick="glossCat('${c}',this)">${c}</button>`).join('');
+  const used=new Set(glossTerms.map(t=>t.term[0].toUpperCase()));
+  let html=`<button class="alpha-btn active" onclick="glossAlpha('ALL',this)">All</button>`;
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(l=>{const has=used.has(l);html+=`<button class="alpha-btn${has?' has-terms':''}" onclick="glossAlpha('${l}',this)" ${!has?'disabled style="opacity:.2;cursor:default"':''}>${l}</button>`;});
+  document.getElementById('gloss-alpha').innerHTML=html;
+  renderGloss('');
+}
+function glossAlpha(l,btn){activeAlpha=l;document.querySelectorAll('.alpha-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGloss(document.getElementById('gloss-search').value.trim().toLowerCase());}
+function glossCat(c,btn){activeCat=c;document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGloss(document.getElementById('gloss-search').value.trim().toLowerCase());}
+function glossFilter(){activeAlpha='ALL';document.querySelectorAll('.alpha-btn').forEach((b,i)=>{if(i===0)b.classList.add('active');else b.classList.remove('active');});renderGloss(document.getElementById('gloss-search').value.trim().toLowerCase());}
+function renderGloss(q){
+  let filtered=glossTerms.filter(t=>{
+    const ml=activeAlpha==='ALL'||t.term[0].toUpperCase()===activeAlpha;
+    const mc=activeCat==='ALL'||(t.tags||[]).some(tag=>tagLabels[tag]===activeCat);
+    const mq=!q||(t.term.toLowerCase().includes(q)||t.def.toLowerCase().includes(q)||(t.ctx&&t.ctx.toLowerCase().includes(q)));
+    return ml&&mc&&mq;
+  }).sort((a,b)=>a.term.localeCompare(b.term));
+  document.getElementById('gloss-count').textContent=filtered.length+' term'+(filtered.length!==1?'s':'')+' shown';
+  if(!filtered.length){document.getElementById('gloss-body').innerHTML=`<div class="gloss-empty">No terms match — try a different keyword or category.</div>`;return;}
+  const byL={};filtered.forEach(t=>{const l=t.term[0].toUpperCase();if(!byL[l])byL[l]=[];byL[l].push(t);});
+  document.getElementById('gloss-body').innerHTML=Object.keys(byL).sort().map(l=>`<div class="gloss-letter-group"><div class="gloss-letter-head">${l}</div>${byL[l].map(t=>`<div class="gloss-term-card"><div class="gloss-term-name">${t.term}<span style="display:flex;gap:4px;flex-wrap:wrap">${(t.tags||[]).map(tag=>`<span class="gloss-tag ${tagClass[tag]||''}">${tagLabels[tag]||tag}</span>`).join('')}</span></div><div class="gloss-term-def">${t.def}</div>${t.ctx?`<div class="gloss-term-context">${t.ctx}</div>`:''}</div>`).join('')}</div>`).join('');
+}
+
+/* QUIZ */
+let quizInited=false;
+const allQ=[
+  {q:'A SOC 2 has an unqualified opinion but Section II shows AES-128 encryption for SSN data. Your policy requires AES-256. What is your next step?',opts:['Accept — the SOC opinion is clean','Document the gap, escalate, and hold onboarding pending remediation','Request a new audit from a different firm','Close as Low risk since the opinion is clean'],ans:1,exp:'A clean opinion means controls operated as described — not that they meet your policy. AES-128 on SSN data is a gap regardless of the opinion. Escalate and hold before access is provisioned.'},
+  {q:'The same access control exception appears in a vendor SOC 2 for two consecutive years. What does this tell you?',opts:['Minor — auditors flag everything','Systemic control failure requiring formal remediation with named owner and deadline','Acceptable — management responded to it the first time','The auditor is being overly strict'],ans:1,exp:'Same exception two cycles = material gap. Prior remediation failed or was not sustained. Require a formal plan with named owners, milestones, and specific evidence requirements.'},
+  {q:'A breach notification clause reads: "Vendor will notify Customer promptly." What is the core problem?',opts:['Nothing — promptly is a legal standard','No defined timeframe is unenforceable and dangerous for HIPAA compliance timelines','Should say 24 hours not 72','The clause should be removed entirely'],ans:1,exp:'"Promptly" is undefined. Your HIPAA OCR clock starts at discovery. If the vendor waits 30 days and claims that was prompt, you lose 30 days of incident response time.'},
+  {q:'CUECs in a SOC 2 represent:',opts:['Controls the auditor tested on your behalf','Controls the vendor guarantees are always operating','Controls your organization is responsible for running','Optional security recommendations'],ans:2,exp:'CUECs are controls the SOC assumes your organization operates. If you do not run them, the SOC opinion does not extend to your environment. Pull every CUEC into a tracker with named owners.'},
+  {q:'A vendor SOC 2 shows critical sub-processors are "carved out." What must you do?',opts:['Accept — carved out means they independently passed','Obtain and review the sub-processors own SOC 2 reports independently','Flag as Low risk since the main SOC is clean','Request a new SOC that includes sub-processors'],ans:1,exp:'Carved out means the auditor did not test those controls. You must independently review the sub-processors. Carved out does not mean safe — it means untested in this report.'},
+  {q:'Inherent risk is calculated as:',opts:['Data sensitivity + business criticality','Data sensitivity × business criticality','Residual risk + control gaps','Control effectiveness ÷ data volume'],ans:1,exp:'Inherent Risk = Data Sensitivity × Business Criticality. Multiplicative, not additive. Any high value multiplied by a moderate value produces a significantly elevated score — the intended behavior.'},
+  {q:'Vendor liability cap is 3 months of fees. Annual contract: $60,000. Maximum contractual recovery if they breach your data?',opts:['$60,000','$15,000','$5,000','Unlimited for breaches'],ans:1,exp:'3 months × ($60,000 ÷ 12) = $15,000. Breach notification, credit monitoring, and regulatory fines will far exceed this. Push for 12-month caps with breach carve-outs.'},
+  {q:'At offboarding, which access types are most commonly left active?',opts:['Email accounts and shared drives','Federated SSO and API keys','VPN credentials and physical badges','User account passwords'],ans:1,exp:'Federated SSO and API keys persist silently — not tied to password expiry cycles and frequently absent from IAM inventories. An access inventory at onboarding makes revocation a checklist, not a hunt.'},
+  {q:'Appointment scheduling data that includes specialty type for named patients is:',opts:['Not PHI — it is administrative data','Potentially PHI because specialty type can imply a medical condition','PHI only if it includes a diagnosis code','Low risk — no clinical treatment data'],ans:1,exp:'Under HIPAA, appointment data tied to a named individual with specialty type — oncology, psychiatry — can reveal a medical condition. That is PHI. A BAA is required.'},
+  {q:'You receive a breach notification the same day a Critical vendor assessment is due. First action?',opts:['Complete the Critical assessment first — tier drives priority','Acknowledge the breach, assess data at risk, escalate to legal before anything else','Defer breach review to next week','Notify the board and pause all other work'],ans:1,exp:'Breach notifications are time-sensitive — HIPAA and GDPR clocks start at discovery. Acknowledge, triage, escalate to legal. The Critical assessment is important but not on a countdown clock. The breach is.'},
+  {q:'A vendor with Data Sensitivity = 5 and Business Criticality = 2. Tier?',opts:['Low (score = 7)','Moderate (score = 10)','High (score = 10)','Critical (score = 25)'],ans:2,exp:'5 × 2 = 10. Using standard tier ranges: 10–16 = High tier. Multiplicative scoring elevates a vendor with very high data sensitivity even at moderate criticality.'},
+  {q:'You find two CUECs in a vendor SOC 2 with no internal owner assigned. What do you do?',opts:['Close — CUECs are the vendor\'s responsibility','Create tracker, assign internal owners, validate evidence before closing the assessment','Escalate to vendor to remove CUECs','Mark complete and note in comments'],ans:1,exp:'CUECs are your responsibility. Without assigned owners and validated evidence, the SOC opinion does not extend to those control areas. Assessment cannot be closed until every CUEC has an owner and evidence.'},
+  {q:'Which NIST CSF function directly governs supply chain and vendor risk management?',opts:['Protect (PR)','Detect (DE)','Identify (ID)','Respond (RS)'],ans:2,exp:'The Identify (ID) function includes ID.SC — Supply Chain Risk Management. This is the NIST CSF category directly mapped to TPRM activities including vendor identification, assessment, and ongoing monitoring.'},
+  {q:'A vendor BitSight score drops from 680 to 590 since last annual review. What do you do?',opts:['Note it in next annual assessment','Immediately investigate the drop and assess whether early reassessment is warranted','Nothing — scores fluctuate naturally','Notify the board immediately'],ans:1,exp:'A 90-point BitSight drop is significant — it reflects real, observable changes in external security posture. Investigate immediately, understand the cause, and determine whether an early full reassessment is needed.'},
+  {q:'What is the HIPAA Breach Notification Rule timeline for notifying OCR?',opts:['24 hours from discovery','30 days from discovery','60 days from discovery','90 days from discovery'],ans:2,exp:'HIPAA requires notifying affected individuals and OCR within 60 days of discovery. Your vendor 24–72 hour contract notification clause feeds into this — vendor delay compresses your response window.'},
+];
+let qOrder=[],qi=0,qCorrect=0,qTotal=0,qAnswered=false;
+function shuffle(a){return a.map((v,i)=>({v,s:Math.random()})).sort((a,b)=>a.s-b.s).map(x=>x.v);}
+function resetQuiz(){qOrder=shuffle([...Array(allQ.length).keys()]);qi=0;qCorrect=0;qTotal=0;qAnswered=false;document.getElementById('quiz-result').style.display='none';updateScore();renderQuiz();}
+function updateScore(){document.getElementById('quiz-score').textContent=qCorrect+' / '+qTotal;}
+function renderQuiz(){
+  const container=document.getElementById('quiz-content');
+  if(qi>=qOrder.length){
+    container.innerHTML='';
+    const pct=Math.round((qCorrect/qTotal)*100);
+    document.getElementById('quiz-result').style.display='block';
+    document.getElementById('quiz-result').innerHTML=`<div class="complete-banner"><div class="complete-pct">${pct}%</div><div style="font-size:16px;font-weight:600;color:var(--green);margin-bottom:6px">${qCorrect} of ${qTotal} correct</div><div class="complete-msg">${pct>=85?'Excellent. Interview-ready on TPRM fundamentals.':pct>=70?'Strong. Review the modules where you missed — SOC 2 nuances and contract clauses are most common gaps.':pct>=55?'Good foundation. Hit the Cheat Sheet, revisit weak areas, and retake.':'Keep building. Start with Lifecycle and SOC 2 sections, then retake. The concepts compound.'}</div><button class="btn btn-success" onclick="resetQuiz()" style="margin-top:14px">Retake assessment</button></div>`;
+    return;
+  }
+  const q=allQ[qOrder[qi]];
+  qAnswered=false;
+  container.innerHTML=`<div class="prog-track"><div class="prog-fill" style="width:${Math.round((qi/allQ.length)*100)}%"></div></div><p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:12px">Question ${qi+1} of ${allQ.length}</p><p class="quiz-q-text">${q.q}</p><div id="opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="selectOpt(this,${i},${q.ans},'${q.exp.replace(/'/g,"\\'")}')">${o}</button>`).join('')}</div><div class="quiz-feedback" id="qfeedback"></div><button id="qnext" style="display:none;margin-top:11px" class="btn btn-primary" onclick="nextQ()">Next question &#8594;</button>`;
+}
+function selectOpt(el,chosen,correct,exp){if(qAnswered)return;qAnswered=true;qTotal++;document.querySelectorAll('.quiz-opt').forEach((o,i)=>{o.disabled=true;if(i===correct)o.classList.add('correct');else if(i===chosen)o.classList.add('wrong');});if(chosen===correct)qCorrect++;updateScore();const fb=document.getElementById('qfeedback');fb.textContent=(chosen===correct?'Correct. ':'Incorrect. ')+exp;fb.classList.add('show');document.getElementById('qnext').style.display='inline-block';}
+function nextQ(){qi++;renderQuiz();}
+resetQuiz();
+</script>
+</body>
+</html>
